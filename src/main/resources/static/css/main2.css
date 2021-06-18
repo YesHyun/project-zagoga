@@ -1,0 +1,233 @@
+@charset "EUC-KR";
+
+@font-face {
+	font-family: 'twaysky';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'twaysky';
+}
+.container {
+	width: 100%;
+	height: 100vh;
+	background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+		url("../img/one.jpg");
+	background-repeat: no-repeat;
+}
+
+.container .header {
+	width: 80%;
+	height: 80px;
+	margin: 0 auto; /*끝에 마진*/
+	display: flex;
+	justify-content: space-between; /*서로가좌우끝으로값이출력되게*/
+	align-items: center; /*중앙정렬*/
+}
+
+.container .header h1 a { /*네이밍*/
+	text-decoration: none;
+	color: white;
+	font-family: 'twaysky';
+}
+
+.container .nav ul li {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.container .nav ul li a {
+	text-decoration: none;
+	color: white;
+	font-family: 'twaysky';
+}
+
+.container .nav ul li a:hover {
+	color: #FFC438;
+}
+
+.container .hero {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	text-align: center;
+	font-family: 'twaysky';
+}
+
+.searchArea {
+	width: 1000px;
+	height: 60px;
+	background: rgba(253, 251, 251, 0.5);
+	border-radius: 10px;
+	margin-top: 24px;
+}
+
+.container .hero h2 {
+	font-size: 60px;
+	margin-bottom: 20px;
+}
+
+.container .hero p {
+	font-size: 22px;
+}
+
+.searchArea>form>input {
+	border: none;
+	width: 200px;
+	height: 60px;
+	background: rgba(0, 0, 0, 0.0);
+	color: black;
+	padding-left: 10px;
+	margin: 2px 2px 0px 0px;
+}
+
+.searchArea>form>.person {
+	width: 100px;
+}
+
+.searchArea>form>span {
+	font-size: 13px;
+}
+
+.container .hero .searchArea button {
+	width: 100px;
+	background: #FFC438;
+	border: 2px;
+	color:  #6D5331;
+	padding: 15px 20px;
+	border-radius: 20px;
+	margin-top: 30px;
+	outline: none;
+	cursor: pointer;
+	transition: all .4s; /*입체적으로 효과보여주기 위해 0.4초 딜레이보여준다*/
+}
+
+.container .hero .searchArea button:hover {
+	background-color: #6D5331;
+	color: #FFC438;
+}
+
+.reco {
+	margin-top: 50px;
+}
+
+.product_list {
+	margin: 0;
+	width: 1188px;
+	height: 100%;
+	margin-left: 100px;
+	list-style: none;
+	margin-top: 30px;
+}
+
+.product_list li {
+	float: left;
+	margin: 0 20px 20px 0;
+	position: relative;
+	width: 374px;
+	height: 501px;
+	border: 1px solid #d9d9d9;
+}
+
+.product_list li:hover {
+	border-color: #333;
+}
+
+.product_list dl {
+	padding: 374px 0px 0px 0;
+}
+
+.product_list dt {
+	padding: 11px 10px 14px;
+	border-top: 1px solid #f0f0f0;
+}
+
+.product_list dt a {
+	font-size: 16px;
+	color: #1a1a1a;
+}
+
+.product_list .img {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.product_list .price {
+	padding: 0 0 0 10px;
+	font-size: 21px;
+	color: #1a1a1a;
+	font-weight: bold;
+}
+
+.product_list .btm {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	border-top: 1px solid #f0f0f0;
+	background: #fafafa;
+}
+
+.product_list .btm div {
+	float: left;
+	width: 50%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 12px;
+	color: #767676;
+}
+
+.product_list .btm div a {
+	font-size: 12px;
+	color: #767676;
+}
+
+.product_list .btm div a img {
+	padding: 0 4px 0 0;
+}
+
+.main_text2 {
+	margin-top: 650px;
+	width: 100%;
+	height: 418px;
+	background-image: url("../img/contact.png");
+}
+
+.main_text2>ul {
+	display: flex;
+	padding-top: 138px;
+}
+
+.main_text2>ul>li {
+	flex: 1;
+	text-align: center;
+}
+
+.main_text2>ul>li>div, .main_text2>ul>li>div>h1 {
+	color: #fff;
+}
+.host_register { /*밑줄 없애기*/
+	text-decoration: none;
+}
+
+.more2 {
+	width: 220px;
+	height: 40px;
+	border: 1px solid #fff;
+	color: #fff;
+	line-height: 40px;
+	cursor: pointer;
+	margin: 16px auto;
+}
+
+

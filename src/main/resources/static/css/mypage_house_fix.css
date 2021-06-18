@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'S-CoreDream-4Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#mainbox{
+    font-family: 'S-CoreDream-4Regular';
+	width: 800px;
+	margin: 0 auto;
+}
+#mainbox table tr td{
+	padding: 10px;
+}
+#mainbox input{
+    height: 2em;
+    padding: 1%; 
+    border: 0;
+    border-bottom: 1px solid;
+}
+#button{
+	width:300px;
+	margin-top:50px;
+	diplay:flex;
+}
+#button button:first-child{
+	flex:1;
+}
+#button button:second-child{
+	flex:1;
+}
+#button button:last-child{
+	flex:1;
+}
+#room_fix tr th{
+	padding:10px;
+}

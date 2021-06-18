@@ -1,0 +1,13 @@
+.mainbox{
+	width:500px;
+	margin:0 auto;
+	padding:10px;
+}
+.imagebox{
+}
+.mainbox table tr td{
+	padding:30px;
+}
+.table{
+	margin: 0 auto;
+}
