@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/header.css"/>
-<script src="resources/js/jquery.js"></script>
-	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/review.css"/>
+<script src="../resources/js/jquery.js"></script>
+
+	<script type="text/javascript" src="resources/js/user.js" charset="utf-8"></script>
+	<title>리뷰 작성 (user용)</title>
 </head>
 <body><!-- 팝업사이즈 조절 : <body onload="window.resizeTo(400,200)"> -->
 <center>
@@ -15,7 +17,7 @@
 <br>
 	<p>이용하신 숙소는 어떠셨나요? </p>
 	<p>따뜻한 격려의 말은 힘이 됩니다</p>
-	<form action="review_ok" method="post">
+	<form action="#" method="post">
 	<p class="star_rating">
  		<a href="#" value="1">★</a>
         <a href="#" value="2">★</a>

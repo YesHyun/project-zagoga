@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>사업자 리스트(admin 용)</title>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/css/administration_list.css" />
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="../header.jsp" %>
 	<div id="container">
 		<div id="input-form">
 		<hr>
@@ -34,7 +34,7 @@
 					<td>홍길동</td>
 					<td>2021-06-02</td>
 					<td>승인</td>
-					<td><button onclick="location.href='administration_reading.jsp'">상세 내용 확인</button></td>
+					<td><button onclick="location.href='host_reading'">상세 내용 확인</button></td>
 				</tr>
 				<tr>
 					<td>223-456-78910</td>
@@ -89,6 +89,6 @@
 							})
 		</script>
 	</div>
-		<%@ include file="footer.jsp" %>
+		<%@ include file="../footer.jsp" %>
 </body>
 </html>

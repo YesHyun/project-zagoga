@@ -3,16 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 	 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사업자 회원가입</title>
+    <title>회원가입 (host용)</title>
     <link href="resources/css/regist_business.css" media="all" rel="Stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="resources/js/regist_business.js" type="text/javascript"></script>
+    <script src="resources/js/pwShowToggle.js" type="text/javascript"></script>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="../header.jsp" %>
 	<form action="#" method="POST" onsubmit="return blankCheck();">
         <div class="inputHead">
             <h2>사업자 인증</h2>
@@ -27,7 +28,7 @@
             <tr><td class="input"><input type="text" id="userID" name="userID" placeholder="아이디" disabled></td></tr>
             <tr>
                 <td class="inputPW"><input type="password" id="userPW" name="userPW" placeholder="비밀번호" disabled></td>
-                <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="resources/img/visibility.png" alt="show password" disabled/></td>
+                <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="../resources/img/visibility.png" alt="show password" disabled/></td>
             </tr>
             <tr><td class="inputPW"><input type="password" id="userPWCheck" name="userPWCheck" placeholder="비밀번호 재입력" disabled></td></tr>
             <tr>
@@ -46,20 +47,20 @@
                     @ <select id="emailAddr" name="emailAddr" disabled>
                         <option>선택</option>
                         <option>naver.com</option>
+                        <option>daum.net</option>
+                        <option>gmail.com</option>
+                        <option>nate.com</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td class="inputButtonLayout">
                     <input class="inputButton" id="registerButton" type="submit" value="회원가입" disabled>
-                    <input class="inputButton" type="button" value="취소">
+                    <input class="inputButton" type="button" value="취소" onclick="location.href='main'">
                 </td>
             </tr>
         </table>
     </form>
-<%@ include file="footer.jsp" %>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="resources/js/regist_business.js" type="text/javascript"></script>
-    <script src="resources/js/pwShowToggle.js" type="text/javascript"></script>
+<%@ include file="../footer.jsp" %>
 </body>
 </html>

@@ -10,9 +10,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link href="resources/css/login.css" media="all" rel="Stylesheet" type="text/css" />
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/resources/js/login.js" type="text/javascript"></script>
+    <script src="/resources/js/pwShowToggle.js" type="text/javascript"></script>
+    <script src="/resources/js/guesthouse.js" type="text/javascript"></script>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="./header.jsp" %>
 	<form action="#" method="POST" onsubmit="return blankCheck();">
     <div id = "mainbox">
     <h2>로그인</h2>
@@ -28,14 +33,15 @@
                 <tr><td colspan="2"><input class="inputButton" type="submit" value="로그인"></td></tr>
                 <tr>
                     <td class="inputFinder"><a href="#">아이디/비밀번호 찾기</a></td>
-                    <td class="inputRegister"><a href="#">회원가입</a></td>
+                    <td class="inputRegister"><a href="javascript:checkPopup()">회원가입</a></td>
                 </tr>
         </table>
     </div>
     </form>
-    <%@ include file="footer.jsp" %>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="resources/js/login.js" type="text/javascript"></script>
-    <script src="resources/js/pwShowToggle.js" type="text/javascript"></script>
+    <div>
+        <a href="/oauth2/authorization/google"><img src="/resources/images/btn_google_signin_light_normal_web.png" alt="구글 로그인"></a>
+    </div>
+    <%@ include file="./footer.jsp" %>
+
 </body>
 </html>

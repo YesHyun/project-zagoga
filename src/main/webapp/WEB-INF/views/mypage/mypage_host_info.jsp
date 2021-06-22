@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 정보 변경 (host용)</title>
 <link href="resources/css/mypage_regist_business.css" media="all"
 	rel="Stylesheet" type="text/css" />
+	//JS처리하기
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="../header.jsp"%>
 	<div id="mainbox">
 	<h2>회원 정보 변경 (사업자)</h2>
 		<table>
@@ -44,9 +45,9 @@
 		</table>
 		<div id = "button">
 			<button>수정완료</button>
-			<button>취소</button>
+			<button onclick="history.go(-1)">취소</button>
 		</div>
 	</div>
-	<%@ include file="footer.jsp"%>
+	<%@ include file="../footer.jsp"%>
 </body>
 </html>

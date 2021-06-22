@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>방 정보(user용)</title>
 <%
 	String GH_name ="111111", GH_image ="",GH_addr1 ="위치테스트", GH_addr2 ="";
 	String R_name="",R_detail="",R_image="";
@@ -15,12 +15,12 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="resources/css/header.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/room.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="../header.jsp" %>
     <section>
         <div class="p-3 mb-2 bg-light text-dark">
             <div class="mx-auto" style="width: 650px;">
@@ -75,13 +75,13 @@
                     <p>취소 규정</p>
                     <ul>
                         <li>취소 및 환불 불가</li>
-                        <li>상세한 취소 규정은 <a href="roomcancel" style="text-decoration: none">자세히보기</a>에서 확인하실 수 있습니다. </li>
+                        <li>상세한 취소 규정은 <a href="room_cancel" style="text-decoration: none">자세히보기</a>에서 확인하실 수 있습니다. </li>
                     </ul>
                     <input type="button" value="예약하기" class="room_spec" onclick="location.href='booking_confirm'">
                 </div>
             </div>
         </div>
     </section>
- 	<%@ include file="footer.jsp" %>
+ 	<%@ include file="../footer.jsp" %>
 </body>
 </html>

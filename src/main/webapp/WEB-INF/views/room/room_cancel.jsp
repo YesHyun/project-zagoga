@@ -4,11 +4,11 @@
     <html>
     <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <link rel="stylesheet" type="text/css" href="resources/css/header.css" />
+    <title>방 세부사항</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
     <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="../header.jsp" %>
         <section>
             <div class="p-3 mb-2 bg-light text-dark">
                 <div class="mx-auto" style="padding: 100px;">
@@ -62,6 +62,6 @@
                 </div>
             </div>
         </section>
- 	<%@ include file="footer.jsp" %>
+ 	<%@ include file="../footer.jsp" %>
     </body>
     </html>

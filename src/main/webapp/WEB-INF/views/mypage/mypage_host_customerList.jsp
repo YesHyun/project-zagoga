@@ -15,11 +15,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="resources/css/costomer_list.css" />
+    <link rel="stylesheet" type="text/css" href="css/costomer_list.css" />
     <title>승인/거부</title>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="../header.jsp" %>
   	<div id = "mainbox">
       <h1>승인 거부 페이지</h1>
   <section>
@@ -75,6 +75,6 @@
         </table>
     </section>
   	</div>
-    	<%@ include file="footer.jsp" %>
+    	<%@ include file="../footer.jsp" %>
 </body>
 </html>

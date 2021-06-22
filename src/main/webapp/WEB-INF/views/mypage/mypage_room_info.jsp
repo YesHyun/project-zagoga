@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>방 정보 수정(host용)</title>
 <link href="resources/css/mypage_room_fix.css" media="all"
 	rel="Stylesheet" type="text/css" />
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="../header.jsp"%>
 	<form>
 		<div id="mainbox">
 			<table>
@@ -34,10 +34,10 @@
 				<div id="button">
 					<button>수정완료</button>
 					<button>회원탈퇴</button>
-					<button>취소</button>
+					<button onclick="history.go(-1)">취소</button>
 				</div>
 		</div>
 	</form>
-	<%@ include file="footer.jsp"%>
+	<%@ include file="../footer.jsp"%>
 </body>
 </html>

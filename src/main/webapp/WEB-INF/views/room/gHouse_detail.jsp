@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게스트하우스 정보 + 방 정보(user용)</title>
 <%
 	String GH_name = "111111", GH_image = "", GH_addr1 = "위치테스트", GH_addr2 = "";
 String R_name = "", R_detail = "", R_image = "";
@@ -16,10 +16,9 @@ Timestamp B_in = null, B_out = null;
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"
 	type="text/css" />
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="resources/css/header.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/room.css" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -28,19 +27,22 @@ Timestamp B_in = null, B_out = null;
 	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="../header.jsp"%>
 	<section>
 		<div class="p-3 mb-2 bg-light text-dark">
 			<div class="mx-auto" style="width: 650px;">
-				<img src="<%=GH_image%>" width="650px" height="500px" alt="대표사진">
+				<!-- <img src="<%=GH_image%>" width="650px" height="500px" alt="대표사진"> -->
+				<img src="../resources/img/busan.jpg" width="650px" height="500px" alt="대표사진">
 				<p>대표사진</p>
 				<p>
 				<h3><%=GH_name%></h3>
 				</p>
 				<p class="star_rating">
-
-					<a href="#" class="on">★</a> <a href="#" class="on">★</a> <a
-						href="#" class="on">★</a> <a href="#">★</a> <a href="#">★</a>
+					<a href="#" class="on">★</a>
+					<a href="#" class="on">★</a>
+					<a href="#" class="on">★</a> 
+					<a href="#">★</a>
+					<a href="#">★</a>
 				</p>
 				<p>
 					위치
@@ -62,8 +64,9 @@ Timestamp B_in = null, B_out = null;
 						%>
 						<tr>
 							<td><a href="room_detail"
-								style="text-decoration-line: none; color: black;"> <img
-									src="<%=R_image%>" width="300px" style="float: left;">
+								style="text-decoration-line: none; color: black;">
+								 <img src="../resources/img/jeju.jpg" width="300px" style="float: left;">
+								 <!-- <img src="<%=R_image%>" width="300px" style="float: left;"> -->
 									<p>
 									<h6><%=R_name%></h6>
 									</p> <br>
@@ -109,7 +112,7 @@ Timestamp B_in = null, B_out = null;
 		</div>
 		</div>
 	</section>
-	<%@ include file="footer.jsp"%>
+	<%@ include file="../footer.jsp"%>
 </body>
 </html>
 

@@ -1,0 +1,80 @@
+@charset "EUC-KR";
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+  /*   margin: 0px;
+    padding: 0px;
+    list-style: none; */
+    text-decoration: none;
+  /*   color: black; */
+	font-family: 'GmarketSansMedium';
+}
+
+.mainbox {
+    background-image: linear-gradient(to top, fddb92 0%, #d1fdff 100%);
+	border: 3px;
+	margin: 20px;
+	height: 880px;
+	width:  700px;
+	padding: 20px;
+	margin-left: 200px;
+}
+h1 {
+	text-align: center;
+}
+.room{
+	width: 250px;
+	height: 200px;
+}
+h4{
+	text-align: left;
+	margin-left: 98px;
+	margin-bottom: 10px;
+}
+
+legend {
+	background-color: #71a2fc;
+	color: #fff;
+	padding: 3px 6px;
+}
+td {
+	padding: 10px;
+	width: auto;
+	text-align: left;
+}
+.main_a{
+    background-color:#fff;
+    color:black;
+	border: none;
+    font-weight: 500;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.info {
+    text-align: center;
+    width: 500px;
+    margin: auto;
+	border-collapse:collapse;
+}
+
+.btn-m{
+		width: 100px;
+		height: 30px;
+		background-color:  #9DCDD7;
+		border-radius: 20px;
+		color: #fff;
+		padding: 3px 6px;
+		border: none;
+		transition: all .4s;
+		margin-top: 30px;
+		
+
+}
+button:hover {
+	background: #fff;
+	color: #71a2fc;;
+}

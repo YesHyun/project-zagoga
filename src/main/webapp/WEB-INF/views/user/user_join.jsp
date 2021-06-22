@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사용자 회원가입</title>
+<title>사용자 회원가입(user용)</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" src="resources/js/user.js" charset="utf-8"></script>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="../header.jsp" %>
 	<center>
-		<form action="#" method="post">
+		<form action="/register/user" method="post">
 		<div class="container">
 			<table class="table table-hover">
 				<tr>
@@ -25,11 +25,11 @@
 				</tr>
 				<tr>
 					<td>주민번호</td>
-					<td><input type="text" name="u_jumin" required="required">
+					<td><input type="text" name="u_jumin" required="required"> <!-- 주민등록번호 중간에 - 추가 -->
 				</tr>
                 <tr>
                     <td>이메일 : </td>
-                    <td><input type="text" name="u_jumin" required="required">
+                    <td><input type="text" name="u_mail" required="required">
                 </tr>
 				<tr>
 					<td>비밀번호</td>
@@ -54,13 +54,13 @@
 				<tr align="center">
 					<td colspan="4">
 						<input type="submit" value="등록">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="reset" value="취소"ocation.href=''">
+						<input type="button" value="취소" onclick="location.href='main'">
 					</td>
 				</tr>
 			</table>
 			</div>
 		</form>
 	</center>
-	<%@ include file="footer.jsp" %>
+	<%@ include file="../footer.jsp" %>
 </body>
 </html>

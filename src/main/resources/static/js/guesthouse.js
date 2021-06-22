@@ -162,41 +162,22 @@ $(document).ready(
 									}
 					});
 });
-	
-//팝업		
-	function showPopup(){window.open
-		("review","후기","width=700, height=500,left=300,top=50");}
-    
-//별점
-$(".star_rating a").click(function() {
-	$(this).parent().children("a").removeClass("on");
-	$(this).addClass("on").prevAll("a").addClass("on");
-	return false;
 
-});
-	
-	
-$( document ).ready(function() {
-	 $( ".star_rating a" ).click(function() {
-		$(this).parent().children("a").removeClass("on");
-	 	$(this).addClass("on").prevAll("a").addClass("on");
-	 	return false;
-    });
-});	
+
 
 function checkPopup(){
 	
-	window.open("check","check","width=1030, height=350,left=700,top=300");
+	window.open("join_check","check","width=1030, height=350,left=700,top=300");
 	
 }		
 		
 function host(){
-	opener.document.location.href="regist_business";
+	opener.document.location.href="host/host_join";
 	self.close();
 }
 
 function user(){
-	opener.document.location.href="signup_user";
+	opener.document.location.href="user/user_join";
 	self.close();
 }				
 		

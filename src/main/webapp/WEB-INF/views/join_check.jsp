@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/header.css"/>
-
+<title>회원가입 고르기</title>
+<link rel="stylesheet" type="text/css" href="resources/css/login_check.css"/>
 <script src="resources/js/jquery.js"></script>
 	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
-
 </head>
 <body>
     <center>
