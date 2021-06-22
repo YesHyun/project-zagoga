@@ -1,4 +1,4 @@
-package com.javalec.projectzagoga;
+package com.javalec.project_zagoga;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

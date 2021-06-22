@@ -1,4 +1,4 @@
-package com.javalec.projectzagoga;
+package com.javalec.project_zagoga;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

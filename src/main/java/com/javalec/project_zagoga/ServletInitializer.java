@@ -1,4 +1,4 @@
-package com.javalec.projectzagoga;
+package com.javalec.project_zagoga;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
