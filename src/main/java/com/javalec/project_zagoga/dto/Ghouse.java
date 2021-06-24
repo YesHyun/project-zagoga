@@ -7,14 +7,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Board {
-    private int no;
+public class Ghouse {
+    private int gh_no;
     private String gh_name;
     private String gh_image;
     private String gh_addr1;
     private String gh_addr2;
     private String gh_detail;
     private int gh_hno;
+    private int lowFee;
 
 
 
