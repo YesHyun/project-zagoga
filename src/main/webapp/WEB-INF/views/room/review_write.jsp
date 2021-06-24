@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/review.css"/>
+<link rel="stylesheet" type="text/css" href="/resources/css/review.css"/>
 <script src="../resources/js/jquery.js"></script>
 
 	<script type="text/javascript" src="resources/js/user.js" charset="utf-8"></script>

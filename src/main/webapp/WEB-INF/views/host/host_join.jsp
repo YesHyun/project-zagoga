@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 (host용)</title>
-    <link href="resources/css/regist_business.css" media="all" rel="Stylesheet" type="text/css" />
+    <link href="/resources/css/regist_business.css" media="all" rel="Stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="resources/js/regist_business.js" type="text/javascript"></script>
     <script src="resources/js/pwShowToggle.js" type="text/javascript"></script>

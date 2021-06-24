@@ -18,7 +18,7 @@ Timestamp B_in = null, B_out = null;
 	type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="resources/css/room.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/room.css" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"

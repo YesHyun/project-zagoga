@@ -12,7 +12,7 @@ Timestamp check_in = null, check_out = null;
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="resources/css/reservation_confrim.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/reservation_confrim.css" />
 <title>Document</title>
 </head>
 <body>
@@ -26,13 +26,13 @@ Timestamp check_in = null, check_out = null;
             <div class="img-table">
                 <table>
                     <tr>
-                        <td><img src="resources/img/room1.jpg" class="room"></td>
+                        <td><img src="/resources/img/room1.jpg" class="room"></td>
                         <td><h2>서울스테이 역삼</h2></td>
                     </tr>
                 </table>
             </div>
             <br>
-            <h4><img src="resources/img/placeholder.png" class="addr">서울,연주로517</h4>
+            <h4><img src="/resources/img/placeholder.png" class="addr">서울,연주로517</h4>
             <br>
             <div class="info-table">
             <table  border="2" class="info" >

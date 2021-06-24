@@ -28,8 +28,6 @@ public class RegisterController {
     }
 
     @PostMapping("/host")
-    public String insertHost(Host host) {
-        return "main";
-    }
+    public String insertHost(Host host) { return "main"; }
 
 }

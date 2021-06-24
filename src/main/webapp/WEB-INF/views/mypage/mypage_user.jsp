@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="../resources/css/user_mypage.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/user_mypage.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <title>마이페이지(user용)</title>
 </head>
@@ -25,7 +25,7 @@
                     <p>전화번호 : 000-0000-000</p>
                     <p>email : ads @adsd.com</p>
                     <p style="float:right">
-                      <input type="button" value="수정 및 탈퇴" onclick="location.href='mypage_user_info'"> &nbsp;&nbsp;&nbsp;
+                      <input type="button" value="수정 및 탈퇴" onclick="location.href='/user/mypage_user_info'"> &nbsp;&nbsp;&nbsp;
                     </p>
                     <br>
                   </table>
@@ -45,7 +45,7 @@
                     <P style="text-align: right;"><small>예약취소시, 사업자에게 연락해주세요</small></P>
                     <br>
                     <p style="float: right;">
-                      <input type="button" value="예약목록" onclick="location.href='mypage_user_booking'">
+                      <input type="button" value="예약목록" onclick="location.href='user/mypage_user_booking'">
                     </p>
                   </table>
                   </div>

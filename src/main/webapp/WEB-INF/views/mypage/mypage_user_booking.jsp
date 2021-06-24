@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="resources/css/user_mypage_info.css" media="all" rel="Stylesheet" type="text/css" />
+<link href="/resources/css/user_mypage_info.css" media="all" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="resources/js/user.js" charset="utf-8"></script>
 <title>예약목록(User)</title>
-    //button들 지워도 되는지 물어보기
 </head>
 <body>
 <%@ include file="../header.jsp"%>

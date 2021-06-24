@@ -7,7 +7,7 @@
 <html>
   <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="resources/css/write.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/write.css" type="text/css">
 	<title>게스트하우스 등록하기(host용)</title>
 	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

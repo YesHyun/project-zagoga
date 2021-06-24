@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="resources/css/user_mypage.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/user_mypage.css" />
 	<script type="text/javascript" src="resources/js/user.js" charset="utf-8"></script>
 <title>마이페이지(host용)</title>
 </head>
@@ -25,7 +25,7 @@
                     <p>email : ads @adsd.com</p>
                     <p>사업자 번호 : 000-000-0000</p>
                     <p style="float:right">
-                      <input type="button" value="정보수정" onclick="location.href='mypage_host_info'"> &nbsp;&nbsp;&nbsp;
+                      <input type="button" value="정보수정" onclick="location.href='/host/mypage_host_info'"> &nbsp;&nbsp;&nbsp;
                       <input type="button" value="회원탈퇴" onclick="">
                     </p>
                   </div>
@@ -39,7 +39,7 @@
                     <p>등록 연락처: 000-0000-000</p>
                     <br>
                     <p style="float: right;">
-                      <input type="button" value="수정하기" onclick="location.href='mypage_house_info'">
+                      <input type="button" value="수정하기" onclick="location.href='/host/mypage_house_info'">
                     </p>
                   </div>
             </div>

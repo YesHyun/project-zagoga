@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 정보 변경 (host용)</title>
-<link href="resources/css/mypage_regist_business.css" media="all"
+<link href="/resources/css/mypage_regist_business.css" media="all"
 	rel="Stylesheet" type="text/css" />
 	//JS처리하기
 </head>

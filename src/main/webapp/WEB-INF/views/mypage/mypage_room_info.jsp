@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>방 정보 수정(host용)</title>
-<link href="resources/css/mypage_room_fix.css" media="all"
+<link href="/resources/css/mypage_room_fix.css" media="all"
 	rel="Stylesheet" type="text/css" />
 </head>
 <body>

@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-    <script src="resources/js/guesthouse.js" type="text/javascript"></script>
+    <script src="/resources/js/data.js"></script>
  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main2.css">
  <script type = "text/javascript">
  		$(document).ready(function () {
@@ -51,6 +51,7 @@
             });    
     });
 </script>
+
 </head>
 <body>
     <div class="container">
@@ -67,9 +68,41 @@
             <h2>어디로 여행가시나요?</h2>
             <p>어디에서나, 여행은 살아보는거야!</p>
             <div class="searchArea">
-             <form>
-                <span>위치</span><input type="text" placeholder="주소" name="">
-                <span>체크인</span><input type="text" id="startDate" name="">
+             <form method="post" action="#">
+                <span>위치</span><input type="text" placeholder="주소" name="" id="searchInput">
+                 <script>
+                     $(function() {	//화면 다 뜨면 시작
+
+
+                         $("#searchInput").autocomplete({  //오토 컴플릿트 시작
+
+
+                             source : searchSource,	// source 는 자동 완성 대상
+                             select : function(event, ui) {	//아이템 선택시
+                                 console.log(ui.item);
+                             },
+                             focus : function(event, ui) {	//포커스 가면
+                                 return false;//한글 에러 잡기용도로 사용됨
+                             },
+                             minLength: 1,// 최소 글자수
+                             autoFocus: true, //첫번째 항목 자동 포커스 기본값 false
+                             classes: {	//잘 모르겠음
+                                 "ui-autocomplete": "highlight"
+                             },
+                             delay: 300,	//검색창에 글자 써지고 나서 autocomplete 창 뜰 때 까지 딜레이 시간(ms)
+              // 			disabled: true, //자동완성 기능 끄기
+                             position: { my : "right top", at: "right bottom" },	//잘 모르겠음
+                             close : function(event){	//자동완성창 닫아질때 호출
+                                 console.log(event);
+                             }
+                         });
+                         var searchValue =document.getElementById(searchInput);
+                         searchValue.val= searchSource;
+
+                     });
+                 </script>
+
+                 <span>체크인</span><input type="text" id="startDate" name="">
                 <span>체크아웃</span><input type="text" id="endDate" name="" >
                 <span>인원</span><input class="person" type="number" placeholder="인원수" name="">
             </form>
@@ -128,7 +161,7 @@
           <li>
             <div><h1>호스트가 되어보세요</h1></div>
             <div>숙소를 공유하여 수입을 올리고 새로운 가능성을 만나세요.</div>
-            <a class="host_register" href="#"><div class="more2">숙소등록하기</div></a>
+            <a class="host_register" href="/host/host_join"><div class="more2">숙소등록하기</div></a>
           </li>
           <li></li>
         </ul>
