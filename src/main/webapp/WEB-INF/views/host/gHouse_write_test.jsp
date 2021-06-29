@@ -1,20 +1,19 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
 <!DOCTYPE html>
-<html xmlns:th="https://www.thyleaf.org  ">
-  <head>
+<html>
+<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="resources/css/write.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/write.css" type="text/css">
 	<title>게스트하우스 등록하기(host용)</title>
 	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  </head>
-  <body>
-  <%@ include file="../header.jsp" %>
+</head>
+<body>
+<%@ include file="../header.jsp" %>
 	<div class="total">
 <%--	  <form name="form" action="/ghouse/uploadMultipleFiles" method="post" enctype="multipart/form-data">--%>
 	<form name="form" action="/ghouse/insert" method="post" enctype="multipart/form-data">

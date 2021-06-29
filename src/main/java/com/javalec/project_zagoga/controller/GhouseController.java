@@ -2,16 +2,12 @@ package com.javalec.project_zagoga.controller;
 
 import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.services.GhouseService;
-import com.javalec.project_zagoga.sql.GhouseSQL;
 import lombok.SneakyThrows;
-import org.apache.ibatis.logging.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartRequest;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.filechooser.FileSystemView;
@@ -19,7 +15,6 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 //@RestController("/board")
 @Controller
@@ -30,7 +25,6 @@ public class GhouseController {
 	private ByteArrayInputStream files;
 
 	public GhouseController(GhouseService ghouseService) {
-
 		this.ghouseService = ghouseService;
 	}
 //  	!!자바 정독 필요
@@ -53,6 +47,7 @@ public class GhouseController {
 		List<Ghouse> show = this.ghouseService.getList();
 		System.out.println(show.toString());
 		model.addAttribute("list",show);
+		// ghouse 0 -
 		System.out.println("list");
 		return "/room/gHouse_list_test";
 	}
@@ -80,17 +75,17 @@ public class GhouseController {
 	@SneakyThrows
 	@PostMapping("/insert")
 	public String insert(Ghouse ghouse, @RequestParam("files") MultipartFile file) throws IOException {
-		String rootPath = FileSystemView.getFileSystemView().getHomeDirectory().toString();
-		String basePath = rootPath + "/" + "single";
-		String filePath0 = basePath + "/" + file.getOriginalFilename();
-		System.out.println("rootPath : " + rootPath + "\nbasePath : " + basePath + "\nfilePath0 : " + filePath0);
+//		String rootPath = FileSystemView.getFileSystemView().getHomeDirectory().toString();
+//		String basePath = rootPath + "/" + "single";
+//		String filePath0 = basePath + "/" + file.getOriginalFilename();
+//		System.out.println("rootPath : " + rootPath + "\nbasePath : " + basePath + "\nfilePath0 : " + filePath0);
 //		String imgAddr = new File("c:/gh_image/"+file.getOriginalFilename())
 //		file.transferTo(new File("c:/gh_image/"+file.getOriginalFilename()));
 ////		ghouse.setGh_image();
 //		ghouseService.insert(ghouse);
 //		return "main";
 
-		String filePath = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\gh_image\\" + file.getOriginalFilename();
+		String filePath = "/" + file.getOriginalFilename();
 		String Path = "/resources/gh_image/";
 		System.out.println("filePath : " + filePath);
 		file.transferTo(new File("C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\gh_image\\"+file.getOriginalFilename()));
@@ -119,10 +114,8 @@ public class GhouseController {
 			try {
 				mf.transferTo(new File(safeFile));
 			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -197,9 +190,11 @@ public class GhouseController {
 	}
 	//test용 ghouse, rooms
 	//board : 게스트 하우스 리스트
-	@RequestMapping("board/gHouse_list_test")
+	@RequestMapping("/gHouse_list_test")
 	public String gHouse_list_test() {
 		return "room/gHouse_list_test";
 	}
+
+
 
 }

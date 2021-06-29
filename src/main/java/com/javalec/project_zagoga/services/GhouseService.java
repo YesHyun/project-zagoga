@@ -22,7 +22,7 @@ public class GhouseService {
 
 	public List<Ghouse> getList(){
 //		Ghouse ghouse = null;
-//		int gh_no = ghouse.getGh_no();
+//		int gh_no = ghouse.getGh_no(); // 최저가 방 하나  room list
 //		int lowFee = (ghouseMapper.lowFee(gh_no));
 		return ghouseMapper.getList();
 	}
