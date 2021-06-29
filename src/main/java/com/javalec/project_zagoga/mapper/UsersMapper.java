@@ -12,15 +12,22 @@ public interface UsersMapper {
     @Select(UserSQL.GET_USERS_LIST)
     List<Users> getUsersList();
 
-    @SelectProvider(type= UserSQL.class, method = "checkUserMailAndPwd")
-    Users checkUserMailAndPwd(@Param("u_mail") String u_mail, @Param("u_pwd") String u_pwd);
+    @SelectProvider(type= UserSQL.class, method = "loadUserByName")
+    Users loadUserByName(@Param("username") String username);
+
+    @SelectProvider(type = UserSQL.class, method = "loadUserBySNS")
+    Users loadUserBySNS(@Param("snsID") String snsID);
 
     @SelectProvider(type = UserSQL.class, method = "getUserByUNo")
     Users get(@Param("u_no") int u_no);
 
+    @Options(useGeneratedKeys = true, keyProperty = "u_no")
     @InsertProvider(type = UserSQL.class, method = "insertUser")
-    int insert(@Param("user") Users user);
+    void insertUser(@Param("user") Users user);
 //    int insert(HashMap<String, Object> user_map);
+
+    @InsertProvider(type = UserSQL.class, method = "insertBySNS")
+    void insertBySNS(@Param("snsID") String snsID, @Param("user") Users user);
 
     @UpdateProvider(type = UserSQL.class, method = "updateUser")
 //    int update(HashMap<String, Object> user_map);

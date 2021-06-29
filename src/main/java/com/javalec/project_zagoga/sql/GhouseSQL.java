@@ -1,10 +1,7 @@
 package com.javalec.project_zagoga.sql;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javalec.project_zagoga.dto.Ghouse;
 import org.apache.ibatis.jdbc.SQL;
-
-import java.util.HashMap;
 
 public class GhouseSQL {
     private static final String TABLE="GHOUSE";

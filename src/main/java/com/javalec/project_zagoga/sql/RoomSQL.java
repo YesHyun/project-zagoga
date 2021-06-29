@@ -1,7 +1,6 @@
 package com.javalec.project_zagoga.sql;
 
 import com.javalec.project_zagoga.dto.Room;
-import com.javalec.project_zagoga.services.RoomService;
 import org.apache.ibatis.jdbc.SQL;
 
 public class RoomSQL {

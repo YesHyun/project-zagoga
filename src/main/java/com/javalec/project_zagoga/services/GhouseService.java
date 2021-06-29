@@ -1,13 +1,10 @@
 package com.javalec.project_zagoga.services;
 
 import com.javalec.project_zagoga.dto.Ghouse;
-import com.javalec.project_zagoga.dto.Room;
 import com.javalec.project_zagoga.mapper.GhouseMapper;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 
 @Service

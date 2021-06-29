@@ -3,23 +3,29 @@ package com.javalec.project_zagoga.services;
 
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.UsersMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
 @Service
-public class UsersService {
+public class UsersService<PasswordEncoder> {
 
     private final UsersMapper usersMapper;
-    public UsersService(UsersMapper usersMapper){ this.usersMapper=usersMapper; }
+    private final PasswordEncoder passwordEncoder;
+//    public UsersService(UsersMapper usersMapper){ this.usersMapper=usersMapper; }
 
-    public Users checkUserMailAndPwd(Users user) {
-        return usersMapper.checkUserMailAndPwd(user.getU_mail(), user.getU_pwd());
-    }
+//    sercurity 사용 전에 필요하던 부분, 지금은 필요 없음
+//    public Users checkUserMailAndPwd(Users user) {
+//        return usersMapper.checkUserMailAndPwd(user.getU_mail(), user.getU_pwd());
+//    }
 
-    public int userInsert(Users user) {
+    public void userInsert(Users user) {
 //        ObjectMapper objectMapper = new ObjectMapper();
 //        HashMap<String, Object> user_map = objectMapper.convertValue(user, HashMap.class);
 //        return usersMapper.insert(user_map);
-        return usersMapper.insert(user);
+        String encPwd = passwordEncoder.encode(user.getU_pwd());
+        user.setU_pwd(encPwd);
+        usersMapper.insertUser(user);
     }
 
     public int userDelete(Users user) {

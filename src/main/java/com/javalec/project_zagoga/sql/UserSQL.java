@@ -9,19 +9,29 @@ import java.util.HashMap;
 public class UserSQL {
 
     private static final String TABLE = "USERS";
+    private static final String SNS_TABLE = "SNS_USERS";
 
     public static final String GET_USERS_LIST = "select * from "+TABLE;
 
 //    작성 방법은 아래 페이지 참조
 //    https://mybatis.org/mybatis-3/ko/statement-builders.html
-    public String checkUserMailAndPwd(String u_mail, String u_pwd) {
+    public String loadUserByName(String username) {
         return new SQL()
                 .SELECT("*")
                 .FROM(TABLE)
-                .WHERE("U_MAIL = #{u_mail}")
-                .AND()
-                .WHERE("U_PWD = #{u_pwd}")
+                .WHERE("U_MAIL = #{username}")
                 .toString();
+    }
+
+    public String loadUserBySNS(String snsID) {
+        System.out.println("loadUserBySNS: "+snsID);
+        return new SQL()
+                .SELECT(TABLE+".*")
+                .FROM(TABLE)
+                .JOIN(SNS_TABLE+" SNS on "+TABLE+".U_NO = SNS.U_NO" )
+                .WHERE("SNS.ID = #{snsID}")
+                .toString();
+//        테이블 만들어서 조인 문 확인하고 작성하기
     }
 
 
@@ -39,9 +49,17 @@ public class UserSQL {
         return new SQL() {{
             INSERT_INTO(TABLE);
             for(String key: user_map.keySet()){
-                if(key.equals("u_no")){ continue; }
+                if(key.equals("u_no") || key.equals("u_join") || key.equals("u_role")){ continue; }
                 VALUES(key.toUpperCase(), "#{user."+key+"}");
             }
+        }}.toString();
+    }
+
+    public String insertBySNS(String snsID, Users user) {
+        return new SQL() {{
+            INSERT_INTO(SNS_TABLE);
+            VALUES("ID", "#{snsID}");
+            VALUES("U_NO", "#{user.u_no}");
         }}.toString();
     }
 
