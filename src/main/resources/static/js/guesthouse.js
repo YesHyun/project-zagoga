@@ -172,12 +172,12 @@ function checkPopup(){
 }		
 		
 function host(){
-	opener.document.location.href="host/host_join";
+	opener.document.location.href="/register/host_join";
 	self.close();
 }
 
 function user(){
-	opener.document.location.href="user/user_join";
+	opener.document.location.href="/register/user_join";
 	self.close();
 }				
 		

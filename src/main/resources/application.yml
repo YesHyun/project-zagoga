@@ -1,11 +1,13 @@
 
 server:
-  port: 8084
+  port: 8080
 
 spring:
   profiles:
     include:
-    - db
+      - db
+      - oauth
+
 
   mvc:
     view:
@@ -13,7 +15,8 @@ spring:
       suffix: .jsp
     static-path-pattern: /resources/**
 
-custom:
-  path:
-    upload-images: 'c://uploadImages/'
+#custom:
+#  path:
+#    upload-images: 'c://uploadImages/'
 
+#OAuth2 Client Config

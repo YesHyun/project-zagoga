@@ -1,0 +1,33 @@
+#mainbox{
+	width:400px;
+	margin:0 auto;
+}
+table { width: 350px; }
+
+.inputHead {
+    font-size: smaller;
+    height: 40px;
+    vertical-align: bottom;
+}
+.inputID :nth-child(1), .inputPW :nth-child(1) {
+    width: 90%;
+    height: 2em;
+    padding: 4%; 
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+/* .inputID :nth-child(1)::placeholder, .inputPW :nth-child(1)::placeholder { color: rgb(196, 196, 196); } */
+::placeholder { color: rgb(196, 196, 196); }
+.inputPWShow { text-align: center; }
+.inputPWShow :nth-child(1) { height: 2em; }
+
+.inputButton {
+    width: 100%;
+    height: 3.5em;
+    margin-top: 20px;
+}
+
+.inputFinder, .inputRegister { font-size: smaller; height: 30px; }
+
+

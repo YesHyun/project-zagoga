@@ -15,9 +15,8 @@
   <body>
   <%@ include file="../header.jsp" %>
 	<div class="total">
-	  <form name="form" action="/ghouse/insert" method="post">
-		  <input type="hidden" name="gh_hno" id="gh_hno" value="1">
-		  <h1>게스트 하우스 소개</h1>
+	  <form name="form" action="#" method="post">
+	    <h1>게스트 하우스 소개</h1>
 	    <div class="section">
 	    
 		    <div class="title">
@@ -54,7 +53,7 @@
 	        	rows="auto" cols="70" name="gh_detail" id="gh_detail">안전하게 여행의 피로를 풀 수있는 게스트하우스입니다.</textarea>
 	      </div>
 	      <div class="button">
-	        <input type="submit" class="but" value="글 올리기">
+	        <input type="button" onclick="write_check_ok()" class="but" value="글 올리기">
 	        <button type="reset" class="but">다시쓰기</button>
 	        <span><button type="button" value="뒤로가기" onclick="history.back()" class="but">뒤로가기</button></span>
 	      </div>

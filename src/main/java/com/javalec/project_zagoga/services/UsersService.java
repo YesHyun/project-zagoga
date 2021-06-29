@@ -1,14 +1,18 @@
 package com.javalec.project_zagoga.services;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.UsersMapper;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
 
 @AllArgsConstructor
 @Service
-public class UsersService<PasswordEncoder> {
+public class UsersService {
 
     private final UsersMapper usersMapper;
     private final PasswordEncoder passwordEncoder;

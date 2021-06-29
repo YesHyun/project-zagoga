@@ -1,0 +1,8 @@
+.info{
+	max-width: 700px;
+	margin: 0 auto;
+	background-color: #fff;
+	height: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}

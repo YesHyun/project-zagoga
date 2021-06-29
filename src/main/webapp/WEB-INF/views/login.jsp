@@ -18,16 +18,16 @@
 </head>
 <body>
 <%@ include file="./header.jsp" %>
-	<form action="#" method="POST" onsubmit="return blankCheck();">
+	<form action="/loginNormal" method="POST" onsubmit="return blankCheck();">
     <div id = "mainbox">
     <h2>로그인</h2>
         <table aria-describedby="loginTable">
             <th id="loginTable"></th>
                 <tr><td class="inputHead">아이디</td></tr>
-                <tr><td colspan="2" class="inputID" ><input type="text" id="userID" name="userID" placeholder="please enter your id"></td></tr>
+                <tr><td colspan="2" class="inputID" ><input type="text" id="userID" name="username" placeholder="please enter your id"></td></tr>
                 <tr><td class="inputHead">비밀번호</td></tr>
                 <tr>
-                    <td class="inputPW"><input type="password" id="userPW" name="userPW" placeholder="please enter your password"></td>
+                    <td class="inputPW"><input type="password" id="userPW" name="password" placeholder="please enter your password"></td>
                     <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="resources/img/visibility.png" alt="show password"/></td>
                 </tr>
                 <tr><td><input type="radio" id="host" name = "user_type">호스트<input type="radio" id="user" name = "user_type">여행객</td></tr>
@@ -40,6 +40,8 @@
         </table>
     <div>
         <a href="/oauth2/authorization/google"><img src="/resources/img/btn_google_signin_light.png" alt="구글 로그인" style="width: 55%; height: 55%"></a>
+        <a href="/oauth2/authorization/naver"><img src="/resources/img/btn_naver_signin_official.png" alt="네이버 로그인" style="width: 55%; height: 55%"></a>
+        <a href="/oauth2/authorization/kakao"><img src="/resources/img/btn_kakao_signin_large_narrow.png" alt="카카오 로그인" style="width: 55%; height: 55%"></a>
     </div>
     </div>
     </form>

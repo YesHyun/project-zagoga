@@ -185,7 +185,5 @@ public class HomeController {
 //	public String mypage_booking() {
 //		return "mypage_booking";
 //	}
-
-
 }
 

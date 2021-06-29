@@ -76,7 +76,7 @@ function inputPhoneNumber(obj) {
     
 	
 //팝업		
-	function showPopup(){window.open("review","후기","width=700, height=500,left=300,top=50");}
+	function showPopup(){window.open("review_write","후기","width=700, height=500,left=300,top=50");}
    
    
 $(document).ready(function() {

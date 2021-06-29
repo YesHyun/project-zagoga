@@ -2,8 +2,8 @@
 @font-face {
 	font-family: 'twaysky';
 	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff')
-		format('woff');
+			url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff')
+			format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -13,7 +13,7 @@
 	padding: 0px;
 	text-decoration: none;
 	box-sizing: border-box;
-  	list-style: none;
+	list-style: none;
 }
 html{
 	height: 100%;
@@ -21,25 +21,25 @@ html{
 body{
 	margin: 0;
 	height: 100%;
-/*	padding: 20px;*/
+	/*	padding: 20px;*/
 }
 
 
-.product_list { 
+.product_list {
 	margin:0;
 	width:1188px;
 	height:100%;
-	 margin-left:100px; 
-	 list-style: none;
-	 margin-top: 30px;
+	margin-left:100px;
+	list-style: none;
+	margin-top: 30px;
 }
-.product_list li { 
+.product_list li {
 	float:left;
-	 margin:0 20px 20px 0; 
-	 position:relative;
-	  width:374px; 
-	  height:501px;
-	   border:1px solid #d9d9d9;
+	margin:0 20px 100px 0px;
+	position:relative;
+	width:374px;
+	height:501px;
+	border:1px solid #d9d9d9;
 }
 .product_list li:hover {
 	border-color:#333;
@@ -47,45 +47,46 @@ body{
 .product_list dl {
 	padding:374px 0px 0px 0;
 }
-.product_list dt { 
+.product_list dt {
 	padding:11px 10px 14px;
-	 border-top:1px solid #f0f0f0;
+	border-top:1px solid #f0f0f0;
 }
-.product_list dt a { 
-	font-size:16px; 
+.product_list dt a {
+	font-size:16px;
 	color:#1a1a1a;
 }
-.product_list .img { 
+.product_list .img {
 	position:absolute;
 	left:0;
 	top:0;
 }
-.product_list .price { 
-	padding:0 0 0 10px; 
-	font-size:21px; 
-	color:#1a1a1a; 
+.product_list .price {
+	padding:0 0 0 10px;
+	font-size:21px;
+	color:#1a1a1a;
 	font-weight:bold;
 }
 .product_list .btm {
 	position:absolute;
-	 left:0; bottom:0; 
-	 width:100%; 
-	 border-top:1px solid #f0f0f0; 
-	 background:#fafafa;
+	left:0; bottom:0;
+	width:100%;
+	border-top:1px solid #f0f0f0;
+	background:#fafafa;
 }
-.product_list .btm div { 
-	float:left; 
-	width:50%; 
-	height:30px; 
-	line-height:30px; 
-	text-align:center; 
-	font-size:12px; 
+.product_list .btm div {
+	float:left;
+	width:50%;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	font-size:12px;
 	color:#767676;
 }
 .product_list .btm div a {
-	font-size:12px; 
+	font-size:12px;
 	color:#767676;
 }
 .product_list .btm div a img {
 	padding:0 4px 0 0;
 }
+
