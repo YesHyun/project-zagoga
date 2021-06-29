@@ -1,10 +1,13 @@
 package com.javalec.project_zagoga.services;
 
 import com.javalec.project_zagoga.dto.Ghouse;
+import com.javalec.project_zagoga.dto.Room;
 import com.javalec.project_zagoga.mapper.GhouseMapper;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 
 @Service
@@ -18,7 +21,12 @@ public class GhouseService {
 //
 //		return this.GhouseMapper.getList();
 //	}
+
+
 	public List<Ghouse> getList(){
+//		Ghouse ghouse = null;
+//		int gh_no = ghouse.getGh_no();
+//		int lowFee = (ghouseMapper.lowFee(gh_no));
 		return ghouseMapper.getList();
 	}
 
@@ -43,7 +51,7 @@ public class GhouseService {
 		return ghouseMapper.selectOne(gh_no);
 	}
 
-	public Ghouse lowFee(int gh_no){
-		return ghouseMapper.lowFee(gh_no);
-	}
+//	public Ghouse lowFee(int gh_no){
+//		return ghouseMapper.lowFee(gh_no);
+//	}
 }

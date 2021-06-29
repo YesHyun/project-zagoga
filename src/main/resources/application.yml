@@ -1,7 +1,7 @@
 
 server:
   port: 8084
-  
+
 spring:
   profiles:
     include:
@@ -12,3 +12,8 @@ spring:
       prefix: /WEB-INF/views/
       suffix: .jsp
     static-path-pattern: /resources/**
+
+custom:
+  path:
+    upload-images: 'c://uploadImages/'
+

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="/resources/css/user_mypage_info.css" media="all" rel="Stylesheet" type="text/css" />
-    <script type="text/javascript" src="resources/js/user.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/resources/js/user.js" charset="utf-8"></script>
 <title>예약목록(User)</title>
 </head>
 <body>

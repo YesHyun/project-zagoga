@@ -30,7 +30,7 @@
                     <td class="inputPW"><input type="password" id="userPW" name="userPW" placeholder="please enter your password"></td>
                     <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="resources/img/visibility.png" alt="show password"/></td>
                 </tr>
-                <tr><td><input type="radio" name = "1">호스트<input type="radio" name = "1">여행객</td></tr>
+                <tr><td><input type="radio" id="host" name = "user_type">호스트<input type="radio" id="user" name = "user_type">여행객</td></tr>
                 <tr></tr>
                 <tr><td colspan="2"><input class="inputButton" type="submit" value="로그인"></td></tr>
                 <tr>
@@ -39,7 +39,7 @@
                 </tr>
         </table>
     <div>
-        <a href="/oauth2/authorization/google"><img src="resources/img/btn_google_signin_light_normal_web.png" alt="구글 로그인"></a>
+        <a href="/oauth2/authorization/google"><img src="/resources/img/btn_google_signin_light.png" alt="구글 로그인" style="width: 55%; height: 55%"></a>
     </div>
     </div>
     </form>

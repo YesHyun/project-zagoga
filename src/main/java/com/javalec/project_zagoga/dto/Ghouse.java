@@ -15,7 +15,6 @@ public class Ghouse {
     private String gh_addr2;
     private String gh_detail;
     private int gh_hno;
-    private int lowFee;
 
 
 

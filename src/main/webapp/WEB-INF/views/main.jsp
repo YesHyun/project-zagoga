@@ -5,10 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>메인화면</title>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
     <script src="/resources/js/data.js"></script>
+    <script src="/resources/js/guesthouse.js"></script>
  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main2.css">
  <script type = "text/javascript">
  		$(document).ready(function () {
@@ -104,7 +105,7 @@
 
                  <span>체크인</span><input type="text" id="startDate" name="">
                 <span>체크아웃</span><input type="text" id="endDate" name="" >
-                <span>인원</span><input class="person" type="number" placeholder="인원수" name="">
+                <span>인원</span><input class="person" type="number" placeholder="인원수" name="" min="1">
             </form>
                 <button>검색</button>
             </div>
@@ -161,7 +162,7 @@
           <li>
             <div><h1>호스트가 되어보세요</h1></div>
             <div>숙소를 공유하여 수입을 올리고 새로운 가능성을 만나세요.</div>
-            <a class="host_register" href="/host/host_join"><div class="more2">숙소등록하기</div></a>
+            <a class="host_register" href="/login"><div class="more2">숙소등록하기</div></a>
           </li>
           <li></li>
         </ul>

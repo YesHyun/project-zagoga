@@ -5,7 +5,7 @@
 	request.setCharacterEncoding("UTF-8");
 %>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thyleaf.org  ">
   <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="resources/css/write.css" type="text/css">
@@ -16,17 +16,19 @@
   <body>
   <%@ include file="../header.jsp" %>
 	<div class="total">
-	  <form name="form" action='<c:url value="/controller/GhouseController"/>' method="post" id="insert">
-		  <input type="hidden" name="gh_hno" id="gh_hno" value="1">
+<%--	  <form name="form" action="/ghouse/uploadMultipleFiles" method="post" enctype="multipart/form-data">--%>
+	<form name="form" action="/ghouse/insert" method="post" enctype="multipart/form-data">
+		  <input type="hidden" name="gh_hno" id="gh_hno" value="1" >
 	    <h1>게스트 하우스 소개</h1>
 	    <div class="section">
 	    
 		    <div class="title">
-		          <h3>제목&nbsp;&nbsp;&nbsp;<input type="text" name="gh_name" id="gh_name" width="100"></h3>
+		          <h3>제목&nbsp;&nbsp;&nbsp;<input type="text" name="gh_name" width="100" required></h3>
 		    </div>
 	        <div class="title2">
 			    <h4>이미지 업로드&nbsp;&nbsp;&nbsp;</h4>
-			    <input type="file" name="gh_image" id="gh_image" size="10">
+<%--			    <input multiple="multiple" type="file" name="files" accept="image/*" >--%>
+				<input type="file" name="files" accept="image/*" >
 	        </div>
 <!-- 				<div class="detail">
 						<h3>상세 내용</h3>
@@ -43,23 +45,22 @@
 						<h4>
                    		주소 <br>
                     
-                    	<input type="text" id="sample6_address" id="gh_addr1" name="gh_addr1" placeholder="주소" readonly>&nbsp;&nbsp;
+                    	<input type="text" id="sample6_address" name="gh_addr1" placeholder="주소" readonly>&nbsp;&nbsp;
                     	<input type="button" onclick="sample6_execDaumPostcode()" value="주소검색"><br>
-						<input type="text" id="sample6_detailAddress" id="gh_addr2" name="gh_addr2" placeholder="상세주소">
+						<input type="text" id="sample6_detailAddress" name="gh_addr2" placeholder="상세주소" required>
 						</h4>
 				</div>
 	    <div class="content">
 	        <h4>소개</h4>
 	        <textarea 
 	        	style="overflow: auto; height: 400px" 
-	        	rows="auto" cols="70" name="gh_detail" id="gh_detail">안전하게 여행의 피로를 풀 수있는 게스트하우스입니다.</textarea>
+	        	rows="auto" cols="70" name="gh_detail" >안전하게 여행의 피로를 풀 수있는 게스트하우스입니다.</textarea>
 	      </div>
 	      <div class="button">
 	        <input type="submit" class="but" value="글 올리기">
 	        <button type="reset" class="but">다시쓰기</button>
 	        <span><button type="button" value="뒤로가기" onclick="history.back()" class="but">뒤로가기</button></span>
 	      </div>
-	    </div>
 	  </form>
 	  <div class="clear"></div>
 	</div>

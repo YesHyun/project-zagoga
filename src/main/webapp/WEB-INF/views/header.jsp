@@ -12,7 +12,7 @@ String path= request.getContextPath();
 </head>
 <body>
 <header>
-	<h2>Zagoga</h2>
+	<h2><a href="/main">Zagoga</a></h2>
 	<div class = "imgbox">
 	</div>
       <div class="navbox">

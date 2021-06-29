@@ -55,11 +55,11 @@ public class HomeController {
 //    }
 
     //	 ■■■ URL 변경
-    // "": host 회원가입 페이지
-	@RequestMapping("/host/host_join")
-	public String host_join() {
-		return "/host/host_join";
-	}
+    // "": host 회원가입 페이지 -- 완: RegisterController.java
+//	@RequestMapping("/register/host_join")
+//	public String host_join() {
+//		return "/host/host_join";
+//	}
 
     //	■■■ URL 변경
 	// "":  룸 상세 정보페이지  ( 예약하기  )
@@ -79,7 +79,7 @@ public class HomeController {
 	//host : 게스트 하우스 글 작성
 	@RequestMapping("/host/gHouse_write")
 	public String gh_write() {
-		return "/host/gHouse_write";
+		return "/host/gHouse_write_test";
 	}
 	//mypage : host 정보 변경 ,회원 탈퇴 
 	//@RequestMapping("/host/mypage_host_fix")
@@ -185,5 +185,7 @@ public class HomeController {
 //	public String mypage_booking() {
 //		return "mypage_booking";
 //	}
+
+
 }
 

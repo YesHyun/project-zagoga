@@ -14,32 +14,48 @@
 	<div class="total">
 		<center>
 			<div class="main">
-				<c:forEach items="${list}" var="li">
+				<c:forEach items="${list}" var="li" varStatus="status">
+				<c:choose >
+					<c:when test="${status.count % 3 == 0}">
+						<DIV>
+							<ul class="product_list">
+								<li>
+									<dl>
+										<dt>
+											<a href="#">${li.gh_name}</a>
+										</dt>
+										<dd class="img">
+<%--											<a href="#"><img src="${li.gh_image}" alt=""></a>--%>
+											<a href="#"><img src="${pageContext.request.contextPath}/resources/gh_image/test.png" width="300px" height="270px" ></a>
+										</dd>
+										<dd class="price">14,000</dd>
+									</dl>
+								</li>
+							</ul>
+						</DIV>
+					</c:when>
+					<c:otherwise>
+						<DIV>
+							<ul class="product_list">
+								<li>
+									<dl>
+										<dt>
+											<a href="#">${li.gh_name}</a>
+										</dt>
+										<dd class="img">
+<%--											<a href="#"><img src="${li.gh_image}" alt=""></a>--%>
+<%--											<a href="#"><img src="C:/gh_image/test.png" width="300px" height="270px" ></a>--%>
+											<a href="#"><img src="${pageContext.request.contextPath}/resources/gh_image/test.png" width="300px" height="270px" ></a>
 
-				<DIV>
-				<ul class="product_list">
-					<li>
-						<dl>
-							<dt>
-								<a href="#">${li.gh_name}</a>
-							</dt>
-							<dd class="img">
-								<a href="#"><img src="#" alt=""></a>
-							</dd>
-							<c:forEach items="${lowfee}" var="lf">
-							<dd class="price">${lf.lowFee}</dd>
-							</c:forEach>
-						</dl>
-					</li>
-				</ul>
-				</DIV>
-
-
+										</dd>
+										<dd class="price">13,000</dd>
+									</dl>
+								</li>
+							</ul>
+						</DIV>
+					</c:otherwise>
+				</c:choose>
 				</c:forEach>
-
-
-
-
 			</div>
 		</center>
 		</div>

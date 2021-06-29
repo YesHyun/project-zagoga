@@ -1,7 +1,6 @@
 package com.javalec.project_zagoga.mapper;
 
 import com.javalec.project_zagoga.dto.Ghouse;
-import com.javalec.project_zagoga.dto.Room;
 import com.javalec.project_zagoga.sql.GhouseSQL;
 import org.apache.ibatis.annotations.*;
 
@@ -40,6 +39,6 @@ public interface GhouseMapper {
 	Ghouse selectOne(int gh_no);
 
 	@SelectProvider(type = GhouseSQL.class, method = "lowFee")
-	Ghouse lowFee(int gh_no);
+	int lowFee(int gh_no);
 
 }

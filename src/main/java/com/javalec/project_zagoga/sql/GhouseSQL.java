@@ -1,7 +1,10 @@
 package com.javalec.project_zagoga.sql;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javalec.project_zagoga.dto.Ghouse;
 import org.apache.ibatis.jdbc.SQL;
+
+import java.util.HashMap;
 
 public class GhouseSQL {
     private static final String TABLE="GHOUSE";
@@ -11,9 +14,21 @@ public class GhouseSQL {
         return new SQL()
                 .INSERT_INTO(TABLE)
                 .INTO_COLUMNS("GH_NAME", "GH_IMAGE", "GH_ADDR1", "GH_ADDR2", "GH_DETAIL", "GH_HNO")
-                .INTO_VALUES("#{gh_name}, #{gh_image}, #{gh_addr1}, #{gh_addr2}, #{gh_detail}, #{gh_hno})")
+                .INTO_VALUES("#{ghouse.gh_name}", "#{ghouse.gh_image}", "#{ghouse.gh_addr1}", "#{ghouse.gh_addr2}", "#{ghouse.gh_detail}", "#{ghouse.gh_hno}")
                 .toString();
     }
+//    public String insert(Ghouse ghouse){
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        HashMap<String, Object> ghouse_map = objectMapper.convertValue(ghouse, HashMap.class);
+//        return new SQL() {{
+//            INSERT_INTO(TABLE);
+//            for(String key: ghouse_map.keySet()){
+//                if(key.equals("gh_hno")){ continue; }
+//                VALUES(key.toUpperCase(), "#{ghouse."+key+"}");
+//            }
+//        }}.toString();
+//    }
+
 
     public String update(Ghouse ghouse){
         return new SQL(){{
