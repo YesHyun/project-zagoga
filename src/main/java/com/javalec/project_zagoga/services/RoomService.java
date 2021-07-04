@@ -1,8 +1,11 @@
 package com.javalec.project_zagoga.services;
 
-import com.javalec.project_zagoga.dto.Room;
+import com.javalec.project_zagoga.dto.*;
 import com.javalec.project_zagoga.mapper.RoomMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class RoomService {
@@ -12,9 +15,9 @@ public class RoomService {
         this.roomMapper=roomMapper;
     }
 
-//    public List<Room> getDetail(int R_NO){
-//        return this.roomMapper.getDetail(R_NO);
-//    }
+    public List<Room> list(int r_ghno){
+        return (List<Room>) roomMapper.list(r_ghno);
+    }
 //
 //    public void insert(String R_NAME, int R_PMIN, int R_PMAX, int R_FEE, String R_DETAIL, int R_GHNO){
 //        this.roomMapper.insert(R_NAME, R_PMIN, R_PMAX, R_FEE, R_DETAIL, R_GHNO);
@@ -23,17 +26,22 @@ public class RoomService {
 //        return this.roomMapper.getDetail(room);
 //    }
 
-    public Room getDetail(int r_no){
+//    public Room getGhouseRoom(int r_ghno){return roomMapper.list(r_ghno);}
+
+    public List<RoomImages> getDetail(int r_no){
         return roomMapper.getDetail(r_no);
     }
 
+    public void imageInsert(Images images){
+        roomMapper.imageInsert(images);
+    }
 
-//    public void insert(String R_NAME, int R_PMIN, int R_PMAX, int R_FEE, String R_DETAIL, int R_GHNO){
-//        this.roomMapper.insert(R_NAME, R_PMIN, R_PMAX, R_FEE, R_DETAIL, R_GHNO);
-//    }
+    public List<RoomImages> mypageRoomInfo(int r_no){
+        return roomMapper.mypageRoomInfo(r_no);
+    }
 
-    public int insert(Room room){
-        return roomMapper.insert(room);
+    public int insertRoom(Room room){
+        return roomMapper.insertRoom(room);
     }
 
     public int update(Room room){

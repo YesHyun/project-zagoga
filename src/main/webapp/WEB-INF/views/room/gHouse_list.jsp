@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
@@ -13,49 +14,44 @@
 <div class="total">
 	<center>
 		<div class="main">
-			<%
-				for(int i = 1; i<=9 ; i++){
-			%>
-			<%
-				if(i % 3 ==0){
-			%>
+			<c:forEach items="${list}" var="li" varStatus="status">
+			<c:choose >
+			<c:when test="${status.count % 3 == 0}">
 			<DIV>
 				<ul class="product_list">
 					<li>
 						<dl>
 							<dt>
-								<a href="#">제주하늘펜션</a>
+								<a href="/ghouse/detail/${li.gh_no}">${li.gh_name}</a>
 							</dt>
 							<dd class="img">
-								<a href="#"><img src="#" alt=""></a>
+								<a href="/ghouse/detail/${li.gh_no}"><img src="${pageContext.request.contextPath}/resources/gh_image/${li.gh_image}" width="370px" height="370px" ></a>
 							</dd>
-							<dd class="price">13,000</dd>
+							<dd class="price">${li.r_fee} 원</dd>
 						</dl>
 					</li>
 				</ul>
 			</DIV>
-			<%
-			}else{
-			%>
+			</c:when>
+			<c:otherwise>
 			<DIV>
 				<ul class="product_list">
 					<li>
 						<dl>
 							<dt>
-								<a href="#">제주하늘펜션</a>
+								<a href="/ghouse/detail/${li.gh_no}">${li.gh_name}</a>
 							</dt>
 							<dd class="img">
-								<a href="#"><img src="#" alt=""></a>
+								<a href="/ghouse/detail/${li.gh_no}"><img src="${pageContext.request.contextPath}/resources/gh_image/${li.gh_image}" width="370px" height="370px" ></a>
 							</dd>
-							<dd class="price">13,000</dd>
+							<dd class="price">${li.r_fee} 원</dd>
 						</dl>
 					</li>
 				</ul>
 			</DIV>
-			<%
-					}
-				}
-			%>
+			</c:otherwise>
+			</c:choose>
+			</c:forEach>
 		</div>
 	</center>
 </div>

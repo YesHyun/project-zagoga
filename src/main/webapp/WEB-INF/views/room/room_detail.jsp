@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.sql.Timestamp"%>
+<%@ page import="com.javalec.project_zagoga.dto.Ghouse" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,6 +9,7 @@
 <meta charset="UTF-8">
 <title>방 정보(user용)</title>
 <%
+    Ghouse ghouse = null;
 	String GH_name ="111111", GH_image ="",GH_addr1 ="위치테스트", GH_addr2 ="";
 	String R_name="",R_detail="",R_image="";
 	int R_pmin=0, R_pmax=0, R_fee=0;
@@ -22,13 +25,19 @@
 <body>
 	<%@ include file="../header.jsp" %>
     <section>
+<%--        <c:set value="${getDetail}" var="dt">--%>
+<%--        <c:forEach items="${getDetail}" var="dt" varStatus="status">--%>
         <div class="p-3 mb-2 bg-light text-dark">
             <div class="mx-auto" style="width: 650px;">
-                <h3><%=R_name %></h3>
-                <p><%=GH_name %></p>
+        <c:if test="${getDetail.size() != 0}">
+                <h3>${getDetail.get(0).r_name}</h3>
+<%--                <p><%=ghouse.getGh_name()%></p>--%>
                 <br>
-                <p>기준 인원 <%=R_pmin %> (최대: <%= R_pmax %>)</p>
-                <p><img src="<%=R_image %>" width="650px"></p>
+                <p>기준 인원 ${getDetail.get(0).r_pmin} (최대: ${getDetail.get(0).r_pmax})</p>
+            <c:forEach items="${getDetail}" var="dt" varStatus="status">
+                <p><img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}" width="650px"></p>
+            </c:forEach>
+        </c:if>
                 <div class="room_date">
                       <form>
                           <center>
@@ -45,7 +54,7 @@
                     <br>
                     <p style="text-align: right;">
                         가격<br>
-                        <%=R_fee%> 원
+                        ${getDetail.get(0).r_fee} 원
                     </p>
                 </div>
                 <div class="room_spec">

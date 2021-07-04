@@ -7,6 +7,7 @@ spring:
     include:
       - db
       - oauth
+      - images
 
 
   mvc:

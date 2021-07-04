@@ -1,7 +1,9 @@
 package com.javalec.project_zagoga.mapper;
 
 import com.javalec.project_zagoga.dto.Ghouse;
-import com.javalec.project_zagoga.sql.GhouseSQL;
+import com.javalec.project_zagoga.dto.GhouseRoom;
+import com.javalec.project_zagoga.dto.GhouseRoomImages;
+import com.javalec.project_zagoga.mapper.sql.GhouseSQL;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -15,8 +17,16 @@ public interface GhouseMapper {
 
 //	@SelectProvider("SELECT * FROM GHOUSE")
 //	public List<Board> getList();
-	@Select(GhouseSQL.GET_ALL_LIST)
-	List<Ghouse> getList();
+	@SelectProvider(type = GhouseSQL.class, method = "getList")
+	List<GhouseRoom> getList();
+
+	//mypage_ghouse_detail
+	@SelectProvider(type = GhouseSQL.class, method = "roomAndGhouse")
+	List<GhouseRoom> roomAndGhouse(int gh_no);
+
+	//mypage_room_detail
+	@SelectProvider(type = GhouseSQL.class, method = "ghouseDetail")
+	List<GhouseRoomImages> ghouseDetail(int gh_no, int r_no);
 
 //	@Insert("INSERT INTO GHOUSE(GH_NAME, GH_ADDR1, GH_ADDR2, GH_DETAIL, GH_HNO) VALUES(#{gh_name}, #{gh_addr1}, #{gh_addr2}, #{gh_detail}, #{gh_hno})")
 //	public void insert(@Param("gh_name")String gh_name, @Param("gh_addr1")String gh_addr1, @Param("gh_addr2")String gh_addr2, @Param("gh_detail")String gh_detail, @Param("gh_hno")String gh_hno);
@@ -30,13 +40,14 @@ public interface GhouseMapper {
 //	@Delete("DELETE FROM GHOUSE WHERE GH_NO = #{GH_NO}")
 //	public void delete(@Param("GH_NO")int GH_NO);
 	@DeleteProvider(type = GhouseSQL.class, method = "delete")
-	int delete(int gh_no, int gh_hno);
+	void delete(int gh_no, int gh_hno);
 
 
 //	@Select("SELECT * FROM GHOUSE WHERE GH_NO = #{GH_NO}")
 //	public List<Ghouse> getOne(@Param("GH_NO")int GH_NO);
 	@SelectProvider(type = GhouseSQL.class, method = "selectOne")
 	Ghouse selectOne(int gh_no);
+
 
 	@SelectProvider(type = GhouseSQL.class, method = "lowFee")
 	int lowFee(int gh_no);
