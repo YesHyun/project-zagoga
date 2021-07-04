@@ -1,5 +1,6 @@
+<%@ page import="com.javalec.project_zagoga.dto.Users" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,21 +53,32 @@
             });    
     });
 </script>
-
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1><a href="#">ZAGOGA</a></h1>
             <div class="nav">
+        <c:set var="session" value="${user }" />
+		<c:choose> 
+			<c:when test="${empty session }">
                 <ul>
                     <li><a href="login">LOGIN</a></li>
                     <li><a href="javascript:checkPopup()">JOIN</a></li>
                 </ul>
+			</c:when> 
+			<c:when test="${!empty session}">
+                <ul>
+                    <li><a href="login">LOGOUT</a></li>
+                </ul>
+			</c:when> 
+		</c:choose> 
             </div>
         </div>
         <div class="hero">
             <h2>어디로 여행가시나요?</h2>
+            <p>${user}</p> <%-- session 정보 표시 되는 부분--%>
             <p>어디에서나, 여행은 살아보는거야!</p>
             <div class="searchArea">
              <form method="post" action="#">

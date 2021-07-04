@@ -19,6 +19,7 @@ public class PrincipalUserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users user = usersMapper.loadUserByName(username);
         if(user != null) {
+            user.setU_role("USER");
             return new PrincipalUser(user);
         }
         return null;

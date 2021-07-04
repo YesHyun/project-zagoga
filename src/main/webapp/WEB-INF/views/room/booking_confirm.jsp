@@ -18,6 +18,7 @@ Timestamp check_in = null, check_out = null;
 <body>
 	<%@ include file="../header.jsp"%>
 	<center>
+
 	        <div class="mainbox">
             <h1>고객님의 예약정보를 확인해주세요!</h1>
             <br>
@@ -71,9 +72,10 @@ Timestamp check_in = null, check_out = null;
             </div>
             <br>
             <div class="btn">
-               <a href="#"><button class="btn-m">확인</button></a>
-               <a href="#"><button class="btn-m">취소</button></a>
+              <button class="btn-m" onclick="location.href='/room/booking_completion'">에약하기</button>
+              <button class="btn-m" onclick="location.href='#'">취소</button>
             </div>
+
         </div>
         </center>
 	 <%@ include file="../footer.jsp"%>

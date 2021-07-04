@@ -28,6 +28,17 @@ table { width: 350px; }
     margin-top: 20px;
 }
 
-.inputFinder, .inputRegister { font-size: smaller; height: 30px; }
+.inputFinder, .inputRegister {
+    font-size: smaller;
+    height: 30px;
+}
+.inputFinder a, .inputRegister a {
+    text-decoration-line: none;
+    color: black;
+}
+.inputFinder :hover, .inputRegister :hover{
+    color: rgb(196, 196, 196);
+}
+
 
 

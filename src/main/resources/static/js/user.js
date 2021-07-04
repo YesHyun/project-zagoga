@@ -1,32 +1,79 @@
-function inputPhoneNumber(obj) { 
-	var number = obj.value.replace(/[^0-9]/g, ""); 
-	var phone = ""; 
-	
-	if(number.length < 4) {
-		return number; 
-		} 
-	else if(number.length < 7) { 
-			phone += number.substr(0, 3);
-			phone += "-"; 
-			phone += number.substr(3); 
-		}
-	else if(number.length < 11) {
-		phone += number.substr(0, 3);
-		phone += "-";
-		phone += number.substr(3, 3); 
-		phone += "-"; 
-		phone += number.substr(6); 
-		}
-	else { 
-		phone += number.substr(0, 3);
-		phone += "-"; 
-		phone += number.substr(3, 4);
-		phone += "-"; 
-		phone += number.substr(7); 
-		} 
-	obj.value = phone; 
-	}     
-	    function sample6_execDaumPostcode() {
+function check() {
+    var isFillOut =false;
+    console.log('here');
+
+    var name = $("#name").val();
+    var gender = $(':radio[name="u_gender"]:checked').val();
+    var nick = $("#nick").val()
+    var jumin1 = $("#jumin1").val();
+    var jumin2 = $("#jumin2").val();
+    var email = $("#emailID").val();
+    var pw = $("#pw").val();
+    var pwCheck = $("#pwCheck").val();
+    var middle_phone = $("#phone1").val();
+    var last_phone = $("#phone2").val();
+    console.log(gender);
+    if (name == "") {
+        alert("이름을 입력해주세요.");
+        $("#name").focus();
+    }else if(gender == null){
+        alert("성별을 선택해주세요");
+    }
+    else if (nick == "") {
+        alert("닉네임을 입력해주세요!");
+        $("#nick").focus();
+    }else if(jumin1 =="" || jumin2 ==""){
+        alert("주민등록번호를 입력해주세요");
+        $("#jumin2").focus();
+    }else if(email == "") {
+        alert("이메일을 입력해주세요");
+        $("#emailID").focus();
+    }
+    else if (pw == "") {
+        alert("비밀번호를 입력해주세요!");
+        $("#pw").focus();
+    }else if (pwCheck == "") {
+        alert("비밀번호를 다시 확인해주세요");
+        $("#pwCheck").focus();
+    }
+    else if (pw != pwCheck) {
+        alert("비밀번호가 같지 않습니다.");
+        $("#userPW").focus();
+    }else if(middle_phone == ""){
+        alert("전화번호를 입력해주세요");
+        $("#phone1").focus();
+    }else if(last_phone == ""){
+        alert("전화번호를 입력해주세요");
+        $("#phone2").focus();
+    }
+    else {
+        isFillOut = true;
+        document.form.submit();
+    }
+    return isFillOut;
+}
+$(document).ready(function () { // 성별 값 넘기기
+    $('#man').click(function () {
+        var radioVal = $("input[name='u_gender'][value='남']").prop("checked",true);
+        console.log(radioVal);
+    });
+
+    $('#woman').click(function () {
+        var radioVal = $("input[name='u_gender'][value='여']").prop("checked",true);
+        console.log(radioVal);
+    });
+
+});
+
+
+
+$( function(){
+    $( '#emailID' ).on("blur keyup", function() {
+        $(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣 | ~!@\#$%<>^&*\()\-=+_\’]/g, '' ) );
+    });
+});
+
+function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -73,6 +120,33 @@ function inputPhoneNumber(obj) {
         }).open();
     }
     
+$(function(){//닉네임 중복체크
+    $('#nick').blur(function(){
+        var u_nick = $("#nick").val();
+        console.log(u_nick);
+        $.ajax({
+            type: "POST",
+            url:"/register/nickCheck.do",
+            data:{u_nick :u_nick},
+            success:function(data){
+                console.log(data);
+                if($.trim(data)=="Y"){
+                    $('#msg').text("사용가능한 닉네임입니다.");
+                    $('#msg').css("color","blue");
+
+                }else if($.trim(data)=="N"){//닉네임값 DB에 존재할때,
+                    $('#msg').text("사용불가능한 닉네임입니다.");
+                    $('#msg').css("color","red");
+                    $('#nick').focus();
+                }
+            },
+            error:function (e){
+                console.log(e);
+                alert("에러발생");
+            }
+        });
+    });
+});
     
 	
 //팝업		

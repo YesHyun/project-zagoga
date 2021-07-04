@@ -1,4 +1,4 @@
-package com.javalec.project_zagoga.sql;
+package com.javalec.project_zagoga.mapper.sql;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javalec.project_zagoga.dto.Users;
@@ -80,6 +80,22 @@ public class UserSQL {
         return new SQL()
                 .DELETE_FROM(TABLE)
                 .WHERE("U_NO = #{u_no}")
+                .toString();
+    }
+
+    public String nickCheck(String u_nick){
+        return new SQL()
+                .SELECT("count(*)")
+                .FROM(TABLE)
+                .WHERE("U_NICK = #{U_NICK}")
+                .toString();
+    }
+
+    public String check_mail(String u_mail){
+        return new SQL()
+                .SELECT("count(*)")
+                .FROM(TABLE)
+                .WHERE("U_MAIL=#{U_MAIL}")
                 .toString();
     }
 

@@ -1,6 +1,11 @@
-
 server:
   port: 8080
+#  servlet:
+#    context-path: /
+#    encoding:
+#      charset: UTF-8
+#      enabled: true
+#      force: true
 
 spring:
   profiles:
@@ -16,8 +21,20 @@ spring:
       suffix: .jsp
     static-path-pattern: /resources/**
 
-#custom:
-#  path:
-#    upload-images: 'c://uploadImages/'
+  #custom:
+  #  path:
+  #    upload-images: 'c://uploadImages/'
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: ghdi95@gmail.com
+    password: jonggu1247~
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+            required: true
+          auth: true
 
-#OAuth2 Client Config
+

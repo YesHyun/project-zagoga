@@ -33,12 +33,12 @@
             <tr><td class="inputPW"><input type="password" id="userPWCheck" name="userPWCheck" placeholder="비밀번호 재입력" disabled></td></tr>
             <tr>
                 <td>
-                    <select class="phoneNum" disabled>
+                    <select  class="phoneNum" disabled>
                         <option>선택</option>
-                        <option>010</option>
+                        <option selected >010</option>
                     </select>
-                    - <input type="text" class="phoneNum" maxlength="4" disabled>
-                    - <input type="text" class="phoneNum" maxlength="4" disabled>
+                    - <input type="text" id="phone1" class="phoneNum" maxlength="4" onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled>
+                    - <input type="text" id="phone2" class="phoneNum" maxlength="4"  onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled>
                 </td>
             </tr>
             <tr>
@@ -46,10 +46,10 @@
                     <input type="text" id="emailID" name="emailID" placeholder="이메일" disabled>
                     @ <select id="emailAddr" name="emailAddr" disabled>
                         <option>선택</option>
-                        <option>naver.com</option>
-                        <option>daum.net</option>
-                        <option>gmail.com</option>
-                        <option>nate.com</option>
+                        <option value="@naver.com" >naver.com</option>
+                        <option value="@daum.net">daum.net</option>
+                        <option value="@gmail.com">gmail.com</option>
+                        <option value="@nate.com">nate.com</option>
                     </select>
                 </td>
             </tr>

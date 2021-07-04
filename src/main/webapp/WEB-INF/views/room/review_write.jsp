@@ -12,8 +12,7 @@
 </head>
 <body><!-- 팝업사이즈 조절 : <body onload="window.resizeTo(400,200)"> -->
 <center>
-<br>
-<br>
+<img src="/resources/img/review.png">
 <br>
 	<p>이용하신 숙소는 어떠셨나요? </p>
 	<p>따뜻한 격려의 말은 힘이 됩니다</p>
@@ -26,7 +25,7 @@
         <a href="#" value="5">★</a>
     </p>
     <br>
-    <textarea rows="10" cols="30" placeholder="10자 이상 입력해주세요"></textarea>
+    <textarea rows="10" cols="40" placeholder="10자 이상 입력해주세요"></textarea>
     <br>
     <br>
     <input type="submit" value="작성">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

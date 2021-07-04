@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.main_aaa{
+    font-family: 'GmarketSansMedium';
+    text-align: center;
+}
+.red{
+    color: red;
+}
+.blue{
+    color: #0100C6;
+}
+button{
+    width: 500px;
+    height: 35px;
+    background-color: #0100C6;
+    color: white;
+    border: none;
+    border-radius: 7px;
+}

@@ -17,15 +17,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final PrincipalOAuth2UserService principalOAuth2UserService;
 
     @Bean
-    public PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder();
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+//        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/user/**", "/sessionCheck").authenticated()
-                .antMatchers("/admin/**").hasRole("ADMIN")
+				/*
+				 * .antMatchers("/user/**", "/sessionCheck").authenticated()
+				 * .antMatchers("/host/**").hasRole("HOST")
+				 * .antMatchers("/admin/**").hasRole("ADMIN")
+				 */
                 .anyRequest().permitAll()
             .and()
                 .logout()
@@ -36,11 +41,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/loginNormal")
                 .defaultSuccessUrl("/main")
                 .failureUrl("/login")
+//                占쎌젔域뱄옙 亦낅슦釉� 占쎈퓠占쎌쑎占쎌뵥 野껋럩�뒭 占쎈뼄占쎌벉 uri嚥∽옙 占쎌뵠占쎈짗占쎈�占쎈빍占쎈뼄.
+            .and()
+                .exceptionHandling().accessDeniedPage("/error")
             .and()
                 .oauth2Login()
                 .loginPage("/login")
                 .defaultSuccessUrl("/main")
                 .failureUrl("/login")
                 .userInfoEndpoint().userService(principalOAuth2UserService);
+//        http.exceptionHandling().accessDeniedPage();
     }
 }

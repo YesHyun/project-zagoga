@@ -2,6 +2,7 @@ package com.javalec.project_zagoga.security;
 
 import com.javalec.project_zagoga.dto.Users;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
+@NoArgsConstructor
 @Data
 public class PrincipalUser implements UserDetails, OAuth2User {
 
@@ -25,12 +27,11 @@ public class PrincipalUser implements UserDetails, OAuth2User {
         this.attributes = attributes;
     }
 
-//   for OAuth2User
+    //   for OAuth2User
     @Override
     public <A> A getAttribute(String name) {
         return OAuth2User.super.getAttribute(name);
     }
-
     @Override
     public Map<String, Object> getAttributes() {
         return this.attributes;
@@ -41,8 +42,30 @@ public class PrincipalUser implements UserDetails, OAuth2User {
     @Override
     public String getName() {
 //        구글만 쓸 거면 의미가 있는데 여러 sns 사용하는 경우 큰 쓸모가 없음.
-        return attributes.get("sub").toString();
+        return getUsername();
     }
+
+    @Override
+    public String getPassword() {
+        return user.getU_pwd();
+    }
+
+    @Override
+    public String getUsername() {
+        String name = user.getU_name();
+        if(name == null) {
+            name = "user";
+        }
+        return name;
+    }
+
+//    Custom Getter
+    public String getMail() { return user.getU_mail(); }
+    public int getNo() { return user.getU_no(); }
+    public String getNickname() { return user.getU_nick(); }
+    public String getGender() { return user.getU_gender(); }
+//    주민번호 스플릿해서 전달해야지?
+//    핸드폰 번호 어떻게 표시 할 건뎅?
 
 
 //   for UserDetails
@@ -64,16 +87,6 @@ public class PrincipalUser implements UserDetails, OAuth2User {
     }
 
     @Override
-    public String getPassword() {
-        return user.getU_pwd();
-    }
-
-    @Override
-    public String getUsername() {
-        return user.getU_mail();
-    }
-
-    @Override
     public boolean isAccountNonExpired() {
         return true;
     }
@@ -92,4 +105,5 @@ public class PrincipalUser implements UserDetails, OAuth2User {
     public boolean isEnabled() {
         return true;
     }
+
 }

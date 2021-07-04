@@ -9,17 +9,36 @@ function write_check_ok(){
         form.gh_image.focus();
 		return;
     
-    }else if(document.form.gh_addr1.value == ""){
+    }else if(document.form.gh_addr.value == ""){
         alert("주소를 입력해주세요");
     	form.gh_addr1.focus();
 		return;
-    }else if(document.form.gh_addr2.value == ""){
-        alert("상세주소를 입력해주세요");
-        form.gh_addr2.focus();
+    } else if(document.form.gh_detail.value == ""){
+        alert("게스트하우스 소개를 입력해주세요");
+        form.gh_detail.focus();
 		return;
-    
-    }else if(document.form.gh_detail.value == ""){
-        alert("소개를 입력해주세요");
+    }
+    document.form.submit();
+}
+//write(room) 게스트 하우스 룸 js 
+function write_check(){
+    if(document.form.title.value == ""){
+        alert("게스트 하우스 상호명을 입력해주세요 ");
+        form.title.focus();
+		return;
+    }
+    else if(document.form.gh_image.value == ""){
+        alert("사진을 첨부해주세요");
+        form.gh_image.focus();
+		return;
+    } 
+    else if(document.form.category.value == ""){
+        alert("사진을 첨부해주세요");
+        form.category.focus();
+		return;
+    } 
+    else if(document.form.gh_detail.value == ""){
+        alert("게스트하우스 소개를 입력해주세요");
         form.gh_detail.focus();
 		return;
     }
@@ -74,36 +93,6 @@ function sample6_execDaumPostcode() {
         }).open();
     }
 
-//휴대폰 '-'넣기
-function inputPhoneNumber(obj) { 
-	var number = obj.value.replace(/[^0-9]/g, ""); 
-	var phone = ""; 
-	
-	if(number.length < 4) {
-		return number; 
-		} 
-	else if(number.length < 7) { 
-			phone += number.substr(0, 3);
-			phone += "-"; 
-			phone += number.substr(3); 
-		}
-	else if(number.length < 11) {
-		phone += number.substr(0, 3);
-		phone += "-";
-		phone += number.substr(3, 3); 
-		phone += "-"; 
-		phone += number.substr(6); 
-		}
-	else { 
-		phone += number.substr(0, 3);
-		phone += "-"; 
-		phone += number.substr(3, 4);
-		phone += "-"; 
-		phone += number.substr(7); 
-		} 
-	obj.value = phone; 
-	}    
-	
 //체크인 체크아웃
 $(document).ready(
 			function() {
@@ -167,7 +156,7 @@ $(document).ready(
 
 function checkPopup(){
 	
-	window.open("join_check","check","width=1030, height=350,left=700,top=300");
+	window.open("join_check","check","width=700, height=350,left=700,top=300");
 	
 }		
 		

@@ -1,7 +1,12 @@
 package com.javalec.project_zagoga.controller;
 
+//import com.javalec.project_zagoga.services.AjaxService;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Handles requests for the application home page.
@@ -21,11 +26,15 @@ public class HomeController {
 		return "/admin/host_reading";
 	}
 
-	// USER: user 예약 페이지
+	// USER: user 예약확인페이지1
 	@RequestMapping("/user/booking_confirm")
 	public String booking_confirm() {
-		return "/user/booking_confirm";
+		return "/room/booking_confirm";
 	}
+	//USER: user 예약증페이지2
+	@RequestMapping("/user/booking_completion")
+	public String booking_completion() { return "/room/booking_completion"; }
+	//USER: user 예약증페이지2
 
     //■■■ URL 변경
 	// BOARD: 게스트하우스 디테일 페이지 ( 게스트하우스 정보 , 룸 목록 ,게스트 하우스 평점 ,  )
@@ -41,13 +50,6 @@ public class HomeController {
 		return "/user/booking_list";
 	}
 
-    //	■■■ URL 변경
-	// HOST: 게스트하우스 예약 신청한 유저에 대한 승인/거절 페이지
-	@RequestMapping("/host/booking/????")
-	public String user_list() {
-		return "/user/user_list";
-	}
-
 	// HOST: 게스트 하우스 이용 고객 출력 페이지
 //	@RequestMapping("/host/booking/list")
 //    public String booking_llksdlfjwoeir() {
@@ -56,10 +58,10 @@ public class HomeController {
 
     //	 ■■■ URL 변경
     // "": host 회원가입 페이지 -- 완: RegisterController.java
-//	@RequestMapping("/register/host_join")
-//	public String host_join() {
-//		return "/host/host_join";
-//	}
+	@RequestMapping("/host/host_join")
+	public String host_join() {
+		return "/host/host_join";
+	}
 
     //	■■■ URL 변경
 	// "":  룸 상세 정보페이지  ( 예약하기  )
@@ -79,7 +81,7 @@ public class HomeController {
 	//host : 게스트 하우스 글 작성
 	@RequestMapping("/host/gHouse_write")
 	public String gh_write() {
-		return "/host/gHouse_write_test";
+		return "/host/gHouse_write";
 	}
 	//mypage : host 정보 변경 ,회원 탈퇴 
 	//@RequestMapping("/host/mypage_host_fix")
@@ -132,10 +134,10 @@ public class HomeController {
 		return "mypage/mypage_host_customerList";
 	}
 	//host : 마이페이지 호스트 개인정보 변경
-	@RequestMapping("host/mypage_host_info")
-	public String mypage_host_info() {
-		return "mypage/mypage_host_info";
-	}
+	/*
+	 * @RequestMapping("host/mypage_host_info") public String mypage_host_info() {
+	 * return "mypage/mypage_host_info"; }
+	 */
 	//host : 마이페이지 게스트 하우스 정보 변경
 	@RequestMapping("host/mypage_house_info")
 	public String mypage_house_info() {
@@ -147,15 +149,26 @@ public class HomeController {
 		return "mypage/mypage_user_booking";
 	}
 	//user : 마이페이지 유저 회원정보 변경 
-	@RequestMapping("user/mypage_user_info")
-	public String mypage_user_info() {
-		return "mypage/mypage_user_info";
-	}
+	/*
+	 * @RequestMapping("user/mypage_user_info") public String mypage_user_info() {
+	 * return "mypage/mypage_user_info"; }
+	 */
 	//user: 유저 마이페이지 메인(회원정보와  예약상태 같이 보여줌)
 	@RequestMapping("user/mypage_user")
 	public String mypage_user() {
 		return "mypage/mypage_user";
 	}
+	//user: 유저 마이페이지 예약히스토리
+	@RequestMapping("user/mypage_user_booking_list")
+	public String mypage_user_booking_list() {
+		return "mypage/mypage_user_booking_list";
+	}
+	//user: 유저 마이페이지 히스토리에서 예약상세
+	@RequestMapping("user/mypage_user_booking_detail")
+	public String mypage_user_booking_detail() {
+		return "mypage/mypage_user_booking_detail";
+	}
+
 	//board : 게스트 하우스 정보 디테일
 	@RequestMapping("board/gHouse_detail")
 	public String gHouse_detail() {
@@ -180,6 +193,41 @@ public class HomeController {
 	@RequestMapping("user/user_join")
 	public String user_join() {
 		return "user/user_join";
+	}
+	@RequestMapping("host/opner")
+	public String opner(HttpServletRequest request , Model model) {
+		String id = request.getParameter("type");
+		String val = request.getParameter("val");
+		model.addAttribute("val",val);
+		model.addAttribute("type",id);
+		return "mypage/opner";
+	}
+	@RequestMapping("/user/mypage_check")
+	public String mypage_user_check(HttpServletRequest request , Model model) {
+		String id = request.getParameter("id");
+		model.addAttribute("id",id);
+		return "mypage/mypage_check";
+	}
+	@RequestMapping("/host/mypage_check")
+	public String mypage_host_check(HttpServletRequest request , Model model) {
+		String id = request.getParameter("id");
+		model.addAttribute("id",id);
+		return "mypage/mypage_check";
+	}
+	@RequestMapping("/mypage_check")
+	public String mypage_check(HttpServletRequest request , Model model) {
+		String id = request.getParameter("id");
+		model.addAttribute("id",id);
+		return "mypage/mypage_check";
+	}
+	@RequestMapping("admin/user_list")
+	public String user_list() {
+		return "admin/user_list";
+	}
+	//지도api..
+	@RequestMapping("/api/naver_map")
+	public String naver_map() {
+		return "room/naver_map";
 	}
 	//	@RequestMapping("mypage_booking")
 //	public String mypage_booking() {

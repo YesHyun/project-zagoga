@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'GmarketSansMedium';
+}
+.page_confirm_inner{
+    margin:0;
+    width:100%;
+    height:100%;
+    margin-left:100px;
+    list-style: none;
+    margin-top: 30px;
+}
+h3{
+    width: 1000px;
+    text-align: center;
+    background-color:#d9d9d9;
+}
+.confirm_top_content {
+    float:left;
+    margin:0px 20px 100px 0px;
+    position:relative;
+    width:1000px;
+    height:300px;
+    border:1.5px solid #d9d9d9;
+}
+.item_tit{
+    text-decoration: underline;
+    font-size: 20px;
+    color:#a3a2a2 ;
+}
+.map_info_tit{
+    margin-top: 30px;
+}
+.img_ico{
+    margin-right: 15px;
+    margin-top: 5px;
+}
+.parking_title {
+    color: red;
+}
+.section_map{
+    margin-top: 20px;
+}
+.img_map{
+    width: 1000px;
+    height: 500px;
+}

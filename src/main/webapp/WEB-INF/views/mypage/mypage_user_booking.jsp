@@ -31,7 +31,7 @@
             </tr>
             <tr height="20">
                 <th class="title">체크인</th>
-                <td><button><a href="#">21/06/23</a></button></td>
+                <td></td>
             </tr>
             <tr height="20">
                 <th class="title">체크아웃</th>  

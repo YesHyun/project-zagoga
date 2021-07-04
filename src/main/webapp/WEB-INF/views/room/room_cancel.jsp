@@ -59,6 +59,7 @@
                             <li>Zagoga는 예약 중개업자로서 천재지변, 숙박업체의 파업, 항공사사정, 내란 등 여러 사유로 발생한 직, 간접적인 예약 고객님의 피해에 대하여 책임을 지지 않습니다.</li>
 
                         </ul>
+                        <button style="float: right" onclick="history.go(-1)">이전으로 돌아가기</button>
                 </div>
             </div>
         </section>

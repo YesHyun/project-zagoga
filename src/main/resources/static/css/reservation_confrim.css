@@ -5,8 +5,8 @@
 	font-style: normal;
 }
 *{
-	margin: 0px;
-	padding: 0px;
+	/*margin: 0px;*/
+	/*padding: 0px;*/
 	list-style: none;
 	text-decoration: none;
 	color: black;
@@ -14,17 +14,19 @@
 }
 
 
+
 .mainbox {
-	background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+	/*background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);*/
 	border: 3px;
 	margin: 20px;
-	height: 680px;
+	height: 740px;
 	width:  600px;
 	padding: 20px;
 	margin-left: 200px;
 }
 h1 {
 	text-align: center;
+	background: #71a2fc;
 }
 .room{
 	width: 250px;

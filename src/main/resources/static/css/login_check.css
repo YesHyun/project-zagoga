@@ -1,22 +1,36 @@
 .user {
-     width: 500px;
-     height: 300px;
-     background-color: #000;
-     text-align: center;        
-     display: inline-block;
+    margin: 0 auto;
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    display: inline-block;
+    background: url("../img/user.png");
+    background-repeat: no-repeat;
  }
  .user a{
-     color: #ccc;
+     margin: 0 auto;
+     color: black;
      text-decoration-line: none;
  }
- .host{            
-     width: 500px;
-     height: 300px;
-     background-color: #000;
-     text-align: center;        
+ .user:hover{
+     background: url("../img/usera.png");
+     background-repeat: no-repeat;
+ }
+ .host{
+     width: 150px;
+     height: 200px;
+     margin: 0 auto;
+     text-align: center;
      display: inline-block;
+    background: url("../img/host.png");
+     background-repeat: no-repeat;
  }
  .host a{
-     color: #ccc;
+
+     color: black;
      text-decoration-line: none;
+ }
+ .host:hover{
+     background-image: url("../img/hosta.png");
+     background-repeat: no-repeat;
  }

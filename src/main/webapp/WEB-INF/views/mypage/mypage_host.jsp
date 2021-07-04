@@ -6,16 +6,16 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="/resources/css/user_mypage.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/mypage_host.css" />
 	<script type="text/javascript" src="/resources/js/user.js" charset="utf-8"></script>
 <title>마이페이지(host용)</title>
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
 	        <section>
-            <div class="p-3 mb-2 bg-light text-dark">
+            <div class="main">
               <div class="info">
-                    <h5>개인정보</h5>
+                    <h4>개인정보</h4>
                     <hr>
                     <p>반갑습니다. 닉네임님</p>
                     <br>
@@ -29,8 +29,8 @@
                       <input type="button" value="회원탈퇴" onclick="">
                     </p>
                   </div>
-                  <div class="info">
-                    <h5>사업장 정보</h5>
+                  <div class="booking">
+                    <h4>사업장 정보</h4>
                     <hr>
                     <p>게스트하우스명</p>
                     <br>

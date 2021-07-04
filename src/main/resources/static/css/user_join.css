@@ -1,0 +1,22 @@
+.container{
+    margin: 0 auto;
+    max-width: 55%;
+    min-width: 650px;
+}
+table{
+    width: 650px;
+}
+table td{
+
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.btn input{
+    border: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+.btn input:hover{
+    background-color: #d9d9d9;
+}

@@ -1,3 +1,9 @@
+.main{
+    max-width: 45%;
+    margin: 0 auto;
+    min-width: 650px;
+}
+
 .room{
     margin: 5px;
     padding: 15px;
@@ -8,10 +14,9 @@
     padding-left: 10px;
 }
 .room_date input{
-    width: 200px;
+    width: 130px;
     border: 1px solid #ce671e;
     padding-left: 20px;
-    padding-right: 20px;
 }
 .room_date span{
     padding-left: 20px;
@@ -24,13 +29,13 @@
 .room_spec input{
     margin: 0px;
     border: none;
-    width: 650px;
+    width: 100%;
     background-color: #ce671e;
     border-radius: 5px;
 }
 .room_spec input:hover{
     border: none;
-    width: 650px;
+    width: 100%;
     background-color: #e78641;
     border-radius: 5px;
 }

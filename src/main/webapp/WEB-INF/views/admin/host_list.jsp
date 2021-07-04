@@ -17,6 +17,11 @@
 			<hr>
 			<p></p>
 		사업자번호 :<input type="text" id="keyword">
+		<select id = "keyword2">
+		<option>승인</option>
+		<option>비승인</option>
+		<option>거절</option>
+		</select>
 		</div>
 		<table id="user-table">
 			<thead>

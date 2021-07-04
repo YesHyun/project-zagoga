@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'GmarketSansMedium';
+}
+/* .ico_images{
+    width: 70px;
+    height: 70px;
+    float:left;
+} */
+.main_title{
+    text-align: center;
+    color: #71a2fc;
+}
+.used_list{
+    margin:0;
+    width:100%;
+    height:100%;
+    margin-left:100px;
+    list-style: none;
+    margin-top: 30px;
+}
+.used_list li {
+    float:left;
+    margin:0px 20px 100px 0px;
+    position:relative;
+    width:750px;
+    height:200px;
+    border:1.5px solid #d9d9d9;
+}
+.used_list li:hover {
+    border-color:#333;
+}
+.used_list .card_header  {
+    padding-top: 20px;
+}
+.title{
+    font-size: 30px;
+    text-decoration: none;
+}
+.used_list .service {
+    padding:5px 10px 2px;
+    border-top:0px solid #f0f0f0;
+}
+.used_list .service a {
+    font-size:10px;
+    color:#1a1a1a;
+    text-decoration: none;
+}
+.used_list .ico_images {
+    position:absolute;
+    left:10px;
+    top: 10px;
+}
+.used_list .service_link {
+    text-align:  center;
+}
+.used_list .card_body{
+    text-align: center;
+    list-style: none;
+}
+.used_list .price {
+    padding:0px 0 0 10px;
+    font-size:17px;
+    color:#1a1a1a;
+    font-weight:bold;
+}
+.desc{
+    text-emphasis: inherit;
+    color: red;
+    text-decoration: underline double;
+}
+.aa{color: #d9d9d9;}
+a:link { text-decoration:none; }
+a:visited { color:black; }

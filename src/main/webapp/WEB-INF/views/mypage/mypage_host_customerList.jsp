@@ -17,11 +17,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/resources/css/costomer_list.css" />
     <title>승인/거부</title>
+	// Ajax처리?
 </head>
 <body>
 	<%@ include file="../header.jsp" %>
   	<div id = "mainbox">
-      <h1>승인 거부 페이지</h1>
+		<h2>고객 리스트</h2>
+		<p>수락을 기다리는 고객이 있습니다.</p>
   <section>
         <table>
                 <tr>
