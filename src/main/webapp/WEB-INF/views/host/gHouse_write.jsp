@@ -18,7 +18,6 @@
 		<form name="form" action="/ghouse/insert" method="post" enctype="multipart/form-data">
 	    <h2>게스트 하우스 등록</h2>
 	    <div class="section">
-	    
 		    <div class="title">
 		          <h3>제목&nbsp;&nbsp;&nbsp;<input type="text" name="gh_name" id="gh_name" width="100"></h3>
 		    </div>

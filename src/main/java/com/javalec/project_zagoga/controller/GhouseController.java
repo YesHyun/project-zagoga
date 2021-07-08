@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -40,8 +39,8 @@ public class GhouseController {
 		return "/room/gHouse_list";
 	}
 
-	@RequestMapping("/write2")
-	public String write2() {
+	@RequestMapping("/write")
+	public String write() {
 		return "/host/gHouse_write";
 	}
 
@@ -51,12 +50,22 @@ public class GhouseController {
 	public String insert(Ghouse ghouse, @RequestParam("files") MultipartFile file) throws IOException {
 		Host host = new Host();
 		host.setH_no(1);
+		int h_no=host.getH_no();
+		String fileAddr = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
+
+		String imageName = String.valueOf(System.currentTimeMillis());
+		String OriginName = file.getOriginalFilename();
+		String transfer = fileAddr + imageName + "_" + OriginName;
+		String safeDb = imageName + "_" + OriginName;
+
 		System.out.println("ghouse.toString() : " + ghouse.toString());
-		String filePath = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-		String Path = "/resources/gh_image/";
-		System.out.println("filePath : " + filePath);
+//		String filePath = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+//		String Path = "/resources/gh_image/";
+//		System.out.println("filePath : " + filePath);
 		try {
-			file.transferTo(new File("C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\gh_image\\"+System.currentTimeMillis()+"_"+file.getOriginalFilename()));
+			ghouse.setGh_image(imageName + "_" + OriginName);
+			File transfers = new File(transfer);
+			file.transferTo(transfers);
 
 		} catch (IllegalStateException e){
 			e.printStackTrace();
@@ -64,9 +73,10 @@ public class GhouseController {
 			e.printStackTrace();
 		}
 		ghouse.setGh_hno(host.getH_no());
-		ghouse.setGh_image(filePath);
+		ghouse.setGh_image(safeDb);
 		ghouseService.insert(ghouse);
 		return "main";
+//		return "redirect:/room/write/"+h_no;
 	}
 
 	//// room이 fk잡혀있어서 삭제안됨
@@ -78,9 +88,10 @@ public class GhouseController {
 
 
 	//gHouse_detail view 20210704 00:53 정상작동
-	@RequestMapping(value = "/detail/{gh_no},{r_no}", method = RequestMethod.GET)
-	public String ghouseDetail(@PathVariable("gh_no")int gh_no, @PathVariable("r_no")int r_no, Model model){
-		List<GhouseRoomImages> ghouseRoomImages=this.ghouseService.ghouseDetail(gh_no, r_no);
+	// 20210705 본체1개, 룸2개, 이미지각각3장씩 총 6줄 출력 / 이미지만 반복시키고 r_no 바뀔때만 출력 2중반복문필요
+	@RequestMapping(value = "/detail/{gh_no}", method = RequestMethod.GET)
+	public String ghouseDetail(@PathVariable("gh_no")int gh_no, Model model) {
+		List<GhouseRoomImages> ghouseRoomImages=this.ghouseService.ghouseDetail(gh_no);
 		model.addAttribute("griList", ghouseRoomImages);
 		System.out.println("ghouseRoomImages.get(0).toString() : "+ghouseRoomImages.get(0).toString());
 //		System.out.println(ghouseRoomImages.toString());
@@ -99,55 +110,54 @@ public class GhouseController {
 
 	@PostMapping("/update")
 	public String update(Ghouse ghouse){
+		System.out.println("ghouse.toString() : " + ghouse.toString());
 		ghouseService.update(ghouse);
 		return "main";
 	}
 
-	//mypage_room_info.jsp 서비스 맵퍼 sql 작성해야함(roomcontroller 에서 해야함)
-	@RequestMapping("/mypageRoomInfo/{r_no}")
-	public String mypageRoomInfo(@PathVariable("r_no")int r_no, Model model){
+
+
+
+	@RequestMapping("/mypageRoomInfo2")	// 방등록현황, 수정페이지 (회원탈퇴는)
+	public String mypageRoomInfo2(){
 		return "/mypage/mypage_room_info";
 	}
-
-
-
-
-
-	@RequestMapping("/mypage_host")		// host
+	@RequestMapping("/mypage_host")		// 개인정보 사업자정보 뷰, 수정페이지
 	public String mypage_host() {
 		return "/mypage/mypage_host";
 	}
-	@RequestMapping("/mypage_host_customerList")	// 접근권한
-	public String mypage_host_customerList() {
-		return "/host/mypage_host_customerList";
-	}
-	@RequestMapping("/mypage_host_info")		//접근권한
+
+	@RequestMapping("/mypage_host_info")		//사업자 회원정보 변경
 	public String mypage_host_info() {
-		return "/host/mypage_host_info";
+		return "/mypage/mypage_host_info";
 	}
-	@RequestMapping("/mypage_house_info")	//접근권한
-	public String mypage_house_info() {
-		return "/host/mypage_house_info";
-	}
-	@RequestMapping("/mypage_room_info")		//접근권한
-	public String mypage_room_info() {
-		return "/host/mypage_room_info";
-	}
-	@RequestMapping("/mypage_user")		//접근권한
-	public String mypage_user() {
-		return "/host/mypage_user";
-	}
-	@RequestMapping("/mypage_user_booking")		//접근권한
-	public String mypage_user_booking() {
-		return "/host/mypage_user_booking";
-	}
-	@RequestMapping("/room_cancel")		// 안내
+	@RequestMapping("/mypage_house_info")	//사업자 등록현황, 등록된 방현황(사업자 정보변경)
+	public String mypage_house_info() {	return "/mypage/mypage_house_info";	}
+	@RequestMapping("/room_cancel")		// 예약 취소 안내
 	public String room_cancel() {
 		return "/room/room_cancel";
 	}
-	@RequestMapping("/booking_confirm")	// 뭔지모르겠
+
+
+
+
+
+
+
+
+	@RequestMapping("/booking_confirm")	// 예약신청후 확인페이지, 예약하기 버튼 누르면 예약됨 (booking_confirm 으로 이동)
 	public String booking_confirm() {
 		return "/room/booking_confirm";
+	}
+	@RequestMapping("/mypage_user")		// user mypage 정보수정, 예약현황 및 목록(버튼 누르면 mypage_user_booking 으로 이동)
+	public String mypage_user() {
+		return "/mypage/mypage_user";
+	}
+	@RequestMapping("/mypage_user_booking")		//user 예약목록
+	public String mypage_user_booking() { return "/mypage/mypage_user_booking";	}
+	@RequestMapping("/mypage_host_customerList")	// 예약 승인/거부 페이지
+	public String mypage_host_customerList() {
+		return "/mypage/mypage_host_customerList";
 	}
 
 }

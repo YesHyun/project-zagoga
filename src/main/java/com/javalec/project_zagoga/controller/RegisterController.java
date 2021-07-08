@@ -46,8 +46,6 @@ public class RegisterController {
         mailService.mailSend(session, u_mail); // 메일보내기
     }
 
-
-
     @RequestMapping(value = "/checkSignup", method = RequestMethod.POST)
     public @ResponseBody String AjaxView(
             @RequestParam(value = "u_mail") String u_mail){

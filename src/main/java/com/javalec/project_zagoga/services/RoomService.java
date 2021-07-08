@@ -1,8 +1,9 @@
 package com.javalec.project_zagoga.services;
 
-import com.javalec.project_zagoga.dto.*;
+import com.javalec.project_zagoga.dto.Images;
+import com.javalec.project_zagoga.dto.Room;
+import com.javalec.project_zagoga.dto.RoomImages;
 import com.javalec.project_zagoga.mapper.RoomMapper;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public class RoomService {
     public RoomService(RoomMapper roomMapper){
         this.roomMapper=roomMapper;
     }
+
+    public Room detail(int r_ghno){return roomMapper.detail(r_ghno);}
 
     public List<Room> list(int r_ghno){
         return (List<Room>) roomMapper.list(r_ghno);
@@ -43,9 +46,10 @@ public class RoomService {
     public int insertRoom(Room room){
         return roomMapper.insertRoom(room);
     }
+    public int getGhno(int h_no){return roomMapper.getGhno(h_no);}
 
-    public int update(Room room){
-        return roomMapper.update(room);
+    public void update(Room room){
+        roomMapper.update(room);
     }
 
     public int delete(int r_no, int r_ghno){

@@ -1,7 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"		 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,41 +14,42 @@
 	<center>
 		<div class="main">
 			<c:forEach items="${list}" var="li" varStatus="status">
+				<DIV>
+					<ul class="product_list">
+						<li>
+							<dl>
+								<dt>
+									<a href="/ghouse/detail/${li.gh_no}">${li.gh_name}</a>
+								</dt>
+								<dd class="img">
+									<a href="/ghouse/detail/${li.gh_no}"><img src="${pageContext.request.contextPath}/resources/gh_image/${li.gh_image}" width="370px" height="370px" ></a>
+								</dd>
+								<dd class="price">${li.r_fee} 원</dd>
+							</dl>
+						</li>
+					</ul>
+				</DIV>
 			<c:choose >
 			<c:when test="${status.count % 3 == 0}">
-			<DIV>
-				<ul class="product_list">
-					<li>
-						<dl>
-							<dt>
-								<a href="/ghouse/detail/${li.gh_no}">${li.gh_name}</a>
-							</dt>
-							<dd class="img">
-								<a href="/ghouse/detail/${li.gh_no}"><img src="${pageContext.request.contextPath}/resources/gh_image/${li.gh_image}" width="370px" height="370px" ></a>
-							</dd>
-							<dd class="price">${li.r_fee} 원</dd>
-						</dl>
-					</li>
-				</ul>
-			</DIV>
+			<br>
 			</c:when>
-			<c:otherwise>
-			<DIV>
-				<ul class="product_list">
-					<li>
-						<dl>
-							<dt>
-								<a href="/ghouse/detail/${li.gh_no}">${li.gh_name}</a>
-							</dt>
-							<dd class="img">
-								<a href="/ghouse/detail/${li.gh_no}"><img src="${pageContext.request.contextPath}/resources/gh_image/${li.gh_image}" width="370px" height="370px" ></a>
-							</dd>
-							<dd class="price">${li.r_fee} 원</dd>
-						</dl>
-					</li>
-				</ul>
-			</DIV>
-			</c:otherwise>
+<%--			<c:otherwise>--%>
+<%--			<DIV>--%>
+<%--				<ul class="product_list">--%>
+<%--					<li>--%>
+<%--						<dl>--%>
+<%--							<dt>--%>
+<%--								<a href="/ghouse/detail/${li.gh_no}">${li.gh_name}</a>--%>
+<%--							</dt>--%>
+<%--							<dd class="img">--%>
+<%--								<a href="/ghouse/detail/${li.gh_no}"><img src="${pageContext.request.contextPath}/resources/gh_image/${li.gh_image}" width="370px" height="370px" ></a>--%>
+<%--							</dd>--%>
+<%--							<dd class="price">${li.r_fee} 원</dd>--%>
+<%--						</dl>--%>
+<%--					</li>--%>
+<%--				</ul>--%>
+<%--			</DIV>--%>
+<%--			</c:otherwise>--%>
 			</c:choose>
 			</c:forEach>
 		</div>

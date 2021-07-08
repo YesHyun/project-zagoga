@@ -2,25 +2,18 @@
 <%@page import="java.sql.Timestamp"%>
 <%@ page import="com.javalec.project_zagoga.dto.Ghouse" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>방 정보(user용)</title>
-<%
-    Ghouse ghouse = null;
-	String GH_name ="111111", GH_image ="",GH_addr1 ="위치테스트", GH_addr2 ="";
-	String R_name="",R_detail="",R_image="";
-	int R_pmin=0, R_pmax=0, R_fee=0;
-	Timestamp B_in =null,B_out=null;
-%>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/resources/css/room.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/room.css" />
+    <script type="text/javascript" src="/resources/js/guesthouse.js" charset="utf-8"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp" %>
@@ -35,21 +28,74 @@
                 <br>
                 <p>기준 인원 ${getDetail.get(0).r_pmin} (최대: ${getDetail.get(0).r_pmax})</p>
             <c:forEach items="${getDetail}" var="dt" varStatus="status">
-                <p><img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}" width="650px"></p>
+                <img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}" width="900px">
             </c:forEach>
-        </c:if>
+
+<%--            <c:forEach var="i" begin="0" end="12" varStatus="status">--%>
+<%--                <c:choose>--%>
+<%--                    <c:when test="${status.count % 6 != 0}">--%>
+<%--                        <img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}" width="900px">--%>
+<%--&lt;%&ndash;                        <img src="${pageContext.request.contextPath}/resources/rooms_image/${getDetail.get(i).i_name}" width="900px">&ndash;%&gt;--%>
+<%--                    </c:when>--%>
+<%--                    <c:otherwise>--%>
+<%--                        <img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}" width="900px">--%>
+<%--                        <br>--%>
+<%--                    </c:otherwise>--%>
+<%--                </c:choose>--%>
+<%--            </c:forEach>--%>
                 <div class="room_date">
-                      <form>
-                          <center>
-                              <span>체크인</span><input type="text" id="startDate" name="B_in">
-                              <span>체크아웃</span><input type="text" id="endDate" name="B_out" >
-                          </center>
-                      </form>
+<%--                      <form name="form" action="/book/beforeBooking/{u_no},{r_no}">--%>
+                      <form name="form" action="/book/beforeBooking/7,${getDetail.get(0).r_no}">
+
+                          <script type = "text/javascript">
+                              $(document).ready(function () {
+                                  $.datepicker.setDefaults($.datepicker.regional['ko']);
+                                  $( "#startDate" ).datepicker({
+                                      changeMonth: true,
+                                      changeYear: true,
+                                      nextText: '다음 달',
+                                      prevText: '이전 달',
+                                      dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+                                      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                                      monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                                      monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                                      dateFormat: 'yy-mm-dd',
+                                      maxDate: 100,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
+                                      onClose: function( selectedDate ) {
+                                          //시작일(startDate) datepicker가 닫힐때
+                                          //종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+                                          $("#endDate").datepicker( "option", "minDate", selectedDate );
+                                      }
+
+                                  });
+                                  $( "#endDate" ).datepicker({
+                                      changeMonth: true,
+                                      changeYear: true,
+                                      nextText: '다음 달',
+                                      prevText: '이전 달',
+                                      dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+                                      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                                      monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                                      monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                                      dateFormat: "yy-mm-dd",
+                                      // dateFormat: "yy년 mm월 dd일 DD",
+                                      maxDate: 100,                       // 선택할수있는 최대날짜, ( 0 : 오늘 이후 날짜 선택 불가)
+                                      onClose: function( selectedDate ) {
+                                          // 종료일(endDate) datepicker가 닫힐때
+                                          // 시작일(startDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
+                                          $("#startDate").datepicker( "option", "maxDate", selectedDate );
+                                      }
+                                  });
+                              });
+                          </script>
+                          <span>체크인</span><input type="text" id="startDate" name="b_in">
+                          <span>체크아웃</span><input type="text" id="endDate" name="b_out" ><br><br>
+                          <span>인원수</span><input type="number" min="1" id="b_pno" name="b_pno" max="16">
                      </div>
                 <div class="room">
                     <p style="font-size: smaller;">
-                        체크인: 15:00~<br>
-                        체크아웃 : ~ 12:00
+                        ${fn:replace(getDetail.get(0).r_detail, replaceChar, "<br/>")}
+<%--                        ${getDetail.get(0).r_detail}<br>--%>
                     </p>
                     <br>
                     <p style="text-align: right;">
@@ -57,6 +103,7 @@
                         ${getDetail.get(0).r_fee} 원
                     </p>
                 </div>
+        </c:if>
                 <div class="room_spec">
                     <p>기본 정보</p>
                     <ul>
@@ -86,7 +133,9 @@
                         <li>취소 및 환불 불가</li>
                         <li>상세한 취소 규정은 <a href="room_cancel" style="text-decoration: none">자세히보기</a>에서 확인하실 수 있습니다. </li>
                     </ul>
-                    <input type="button" value="예약하기" class="room_spec" onclick="location.href='/user/booking_confirm'">
+                    <input type="submit" value="예약하기" class="room_spec" >
+<%--                    onclick="location.href='/user/booking_confirm'"--%>
+                    </form>
                 </div>
             </div>
         </div>

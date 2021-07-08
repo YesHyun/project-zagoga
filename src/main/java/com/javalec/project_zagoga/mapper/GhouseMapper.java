@@ -20,13 +20,13 @@ public interface GhouseMapper {
 	@SelectProvider(type = GhouseSQL.class, method = "getList")
 	List<GhouseRoom> getList();
 
-	//mypage_ghouse_detail
+	//mypage_room_detail
 	@SelectProvider(type = GhouseSQL.class, method = "roomAndGhouse")
 	List<GhouseRoom> roomAndGhouse(int gh_no);
 
-	//mypage_room_detail
+	//mypage_ghouse_detail
 	@SelectProvider(type = GhouseSQL.class, method = "ghouseDetail")
-	List<GhouseRoomImages> ghouseDetail(int gh_no, int r_no);
+	List<GhouseRoomImages> ghouseDetail(int gh_no);
 
 //	@Insert("INSERT INTO GHOUSE(GH_NAME, GH_ADDR1, GH_ADDR2, GH_DETAIL, GH_HNO) VALUES(#{gh_name}, #{gh_addr1}, #{gh_addr2}, #{gh_detail}, #{gh_hno})")
 //	public void insert(@Param("gh_name")String gh_name, @Param("gh_addr1")String gh_addr1, @Param("gh_addr2")String gh_addr2, @Param("gh_detail")String gh_detail, @Param("gh_hno")String gh_hno);

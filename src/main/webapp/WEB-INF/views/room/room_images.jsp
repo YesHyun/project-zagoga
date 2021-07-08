@@ -3,6 +3,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,7 +16,7 @@
   <body>
   <%@ include file="../header.jsp" %>
 	<div class="total">
-	  <form name="form" action="/room/room_images" method="post" enctype="multipart/form-data">
+	  <form name="form" action="/room/room_images/${RM.r_no}" method="post" enctype="multipart/form-data">
 	    <h1>방 소개</h1>
 	    <div class="section">
 		    <div class="title">

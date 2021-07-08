@@ -10,10 +10,12 @@ public class GhouseSQL {
     private static final String Images="IMAGES";
     public static final String GET_ALL_LIST="select * from " + TABLE;
 
+    //select GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE) from GHOUSE,ROOMS group by GH_NO;
     public String getList(GhouseRoom ghouseRoom){
         return new SQL()
-                .SELECT("GH_NO, GH_NAME, GH_IMAGE, R_FEE")
+                .SELECT("GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE)'R_FEE'")
                 .FROM(TABLE,Rooms)
+                .GROUP_BY("GH_NO")
                 .toString();
     }
 
@@ -34,38 +36,30 @@ public class GhouseSQL {
                 .toString();
     }
 
-    public String ghouseDetail(int gh_no, int r_no){
+//select * from
+// GHOUSE join ROOMS R on GHOUSE.GH_NO = R.R_GHNO join IMAGES I on R.R_NO = I.I_RNO
+// where I_RNO >= (select min(R_NO)'R_NO' from ROOMS where R_GHNO = 2)
+// and I_RNO <= (select max(R_NO)'R_NO' from ROOMS where R_GHNO = 2)
+// order by I_RNO and I_NO desc;
+    public String ghouseDetail(int gh_no){
         return new SQL()
-                .SELECT("*")
-                .FROM(TABLE,Rooms,Images)
-                .WHERE("I_RNO = #{r_no}")
-                .WHERE("R_GHNO = #{gh_no}")
+                .SELECT("GH_NAME", "GH_IMAGE", "GH_ADDR1", "GH_ADDR2", "GH_DETAIL")
+                .FROM("GHOUSE join ROOMS R on GHOUSE.GH_NO = R.R_GHNO join IMAGES I on R.R_NO = I.I_RNO ")
+                .WHERE("I_RNO >= (select min(R_NO)'R_NO' from ROOMS where R_GHNO = #{gh_no}) and I_RNO <= (select max(R_NO)'R_NO' from ROOMS where R_GHNO = #{gh_no})")
+                .ORDER_BY("I_RNO and I_NO desc")
                 .toString();
     }
-
-//    public String insert(Ghouse ghouse){
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        HashMap<String, Object> ghouse_map = objectMapper.convertValue(ghouse, HashMap.class);
-//        return new SQL() {{
-//            INSERT_INTO(TABLE);
-//            for(String key: ghouse_map.keySet()){
-//                if(key.equals("gh_hno")){ continue; }
-//                VALUES(key.toUpperCase(), "#{ghouse."+key+"}");
-//            }
-//        }}.toString();
-//    }
-
 
     public String update(Ghouse ghouse){
         return new SQL(){{
             UPDATE(TABLE);
             SET("GH_NAME = #{ghouse.gh_name}");
-            SET("GH_IMAGE = #{ghouse.gh_imgae}");
+            SET("GH_IMAGE = #{ghouse.gh_image}");
             SET("GH_ADDR1 = #{ghouse.gh_addr1}");
             SET("GH_ADDR2 = #{ghouse.gh_addr2}");
             SET("GH_DETAIL = #{ghouse.gh_detail}");
-            WHERE("GH_HNO = #{ghouse.gh_hno");
-            WHERE("GH_NO = #{ghouse.gh_no");
+            WHERE("GH_HNO = #{ghouse.gh_hno}");
+            WHERE("GH_NO = #{ghouse.gh_no}");
         }}.toString();
     }
 

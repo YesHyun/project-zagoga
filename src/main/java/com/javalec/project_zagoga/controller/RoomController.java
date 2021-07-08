@@ -45,42 +45,72 @@ public class RoomController {
         return "/room/room_detail";
     }
 
-    //룸작성페이지 화면!!
-    @GetMapping("/write")
+    //룸작성화면
+    @RequestMapping("/write")
     public String write(){
         return "/room/room_write";
     }
 
+//    //게스트하우스 등록후 바로 작성할때?
+//    @RequestMapping("/write/{h_no}")
+//    public String write(@PathVariable("h_no")int h_no, Model model){
+//        int gh_no = roomService.getGhno(h_no);
+//        model.addAttribute("gh_no", gh_no);
+//        System.out.println("gh_no : " + gh_no);
+//        return "/room/room_write";
+//    }
+
+//    @PostMapping("/write2/{gh_no},{h_no}")
+//    public String write2(@PathVariable("gh_no")int gh_no, @PathVariable("h_no")int h_no){
+//        return "/room/room_write/"+gh_no+","+h_no;
+//    }
+
     //정상작동!! 210703 21:52
-    @PostMapping("/room_write")
-    public String room_write(Room room){
-        room.setR_ghno(2);
+    @PostMapping("/room_write/{r_ghno}")
+    public String room_write(Room room, @PathVariable("r_ghno") int r_ghno){
+        room.setR_ghno(r_ghno);
         System.out.println(room.toString());
         roomService.insertRoom(room);
+
+        return "redirect:/room/detail/"+r_ghno;
+
+    }
+
+//  room_write -> detail(이미지 넣기전 방금넣은 room data 가져오기) -> room_images
+    @RequestMapping(value = "/detail/{r_ghno}")
+    public String detail(@PathVariable("r_ghno")int r_ghno, Model model){
+        Room room = roomService.detail(r_ghno);
+        model.addAttribute("RM", room);
+        System.out.println("room.toString() : " + room.toString());
         return "/room/room_images";
+
     }
     
-    //이미지 업로드 화면!!
-    @GetMapping("/images")
-    public String image(){return "/room/room_images";}
-    
     //이미지업로드 컨트롤러 20210703 정상작동
-    @PostMapping("/room_images")
-    public String room_images(Images images, @RequestParam("files") List<MultipartFile> files) throws IOException {
-        Room room = new Room();
-        room.setR_no(4);    // 룸 넘버 가져오는 세션 연결해야함
+    @PostMapping("/room_images/{r_no1}")
+    public String room_images(Images images, @PathVariable("r_no1")int r_no1, @RequestParam("files") List<MultipartFile> files) throws IOException {
+//        Room room = roomService.detail(r_ghno);
+//        System.out.println("room/room_images = room.toString() : " + room.toString());
 //        String Path = "/resources/rooms_image/";
-
+        images.setI_rno(r_no1);
+        String fileAddr = "C:\\Users\\yeon\\IdeaProjects\\project-zagoga\\src\\main\\resources\\static\\rooms_image\\";
         List<String> safeDB = new ArrayList<>();
         List<Integer> r_no = new ArrayList<>();
 
         try {
             for (int i=0; i<files.toArray().length; i++){
-                safeDB.add(System.currentTimeMillis() + "_" + files.get(i).getOriginalFilename());
-                r_no.add(room.getR_no());
+//                long imageName = System.currentTimeMillis();
+                String imageName = String.valueOf(System.currentTimeMillis());
+                String OriginName = files.get(i).getOriginalFilename();
+                String transfer = fileAddr + imageName + "_" + OriginName;
+                File transferto = new File(transfer);
+                System.out.println("room/room_images : " + transfer);
+
+                safeDB.add(imageName + "_" + OriginName);
+                r_no.add(images.getI_rno());
 //                System.out.println(safeDB.get(i));
 //                images.setI_name(System.currentTimeMillis() + "_" + files.get(i).getOriginalFilename());
-                files.get(i).transferTo(new File("C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\"+System.currentTimeMillis()+"_"+files.get(i).getOriginalFilename()));
+                files.get(i).transferTo(transferto);
 //                System.out.println("in for "+i+" : "+images.toString());
             }
         } catch (IllegalStateException e){
@@ -112,22 +142,23 @@ public class RoomController {
     @RequestMapping(value = "/mypageRoomInfo/{r_no}", method = RequestMethod.GET)
     public String mypageRoomInfo(@PathVariable("r_no")int r_no, Model model){
         List<RoomImages> roomImages = roomService.mypageRoomInfo(r_no);
-        System.out.println(roomImages.toString());
-        System.out.println(roomImages.get(0).toString());
+        System.out.println("roomImages.toString() : "+roomImages.toString());
+//        System.out.println(roomImages.get(0).toString());
         model.addAttribute("room", roomImages);
         return "/mypage/mypage_room_info";
     }
 
-    //컨트롤러 form 연결은 함,, update할때 사진여러장 선택해제 어떻게할지 생각
+//  20210706 15:47 확인
     @PostMapping("/update")
     public String update(Room room){
+        System.out.println("room.toString : " + room.toString());
         roomService.update(room);
         return "main";
     }
 
-    //확인
+    //확인 button에서 컨트롤러로 전송방법찾기
     @RequestMapping("/delete/{r_no},{r_ghno}")    // 9, 3 테스트
-    public String delete(@PathVariable("r_no") int r_no, @PathVariable("r_ghno") int r_ghno){
+    public String delete(@PathVariable("r_no") int r_no, @PathVariable("r_ghno") int r_ghno) {
         roomService.delete(r_no, r_ghno);
         return "main";
     }

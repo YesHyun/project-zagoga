@@ -3,7 +3,6 @@ package com.javalec.project_zagoga.services;
 import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.GhouseRoomImages;
-import com.javalec.project_zagoga.dto.Images;
 import com.javalec.project_zagoga.mapper.GhouseMapper;
 import org.springframework.stereotype.Service;
 
@@ -26,8 +25,8 @@ public class GhouseService {
 		return ghouseMapper.roomAndGhouse(gh_no);
 	}
 
-	public List<GhouseRoomImages> ghouseDetail(int gh_no, int r_no){
-		return ghouseMapper.ghouseDetail(gh_no, r_no);
+	public List<GhouseRoomImages> ghouseDetail(int gh_no){
+		return ghouseMapper.ghouseDetail(gh_no);
 	}
 
 	public List<GhouseRoom> getList(){

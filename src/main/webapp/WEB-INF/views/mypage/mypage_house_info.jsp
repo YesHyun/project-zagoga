@@ -18,19 +18,22 @@
 				<h2>사업 등록 현황</h2>
 				<tr>
 					<td>상호명</td>
-					<td><input type="text" value="${grList.get(0).gh_name}"></td>
+					<td><input type="text" name="gh_name" value="${grList.get(0).gh_name}"></td>
 				</tr>
 				<tr>
 					<td>사업위치</td>
-					<td><input type="text" value="${grList.get(0).gh_addr1}"></td>
+					<td><input type="text" name="gh_addr1" value="${grList.get(0).gh_addr1},${grList.get(0).gh_addr2}" size="50%" readonly></td>
 				</tr>
 				<tr>
 					<td>등록된 방 개수</td>
-					<td><input type="text" value="${grList.size()}"></td>
+					<td><input type="text" value="${grList.size()}" readonly></td>
 				</tr>
 				<tr>
 					<td>기타 사항 및 소개글</td>
-					<td><textarea cols="50" rows="10" name="${grList.get(0).gh_detail}>"></textarea></td>
+				</tr>
+				<tr>
+<%--					<td><textarea cols="50" rows="10" name="gh_detail">${grList.get(0).gh_detail}</textarea></td>--%>
+					<td colspan="2"><textarea cols="50" rows="10" name="gh_detail>">${grList.get(0).gh_detail}</textarea></td>
 				</tr>
 			</table>
 			<table id = "room_fix">
@@ -43,10 +46,11 @@
 				<c:forEach items="${grList}" var="gr" varStatus="status">
 				<tr>
 					<td><input name="r_no" value="${gr.r_no}" readonly></td>
-					<td><input type="number" name="r_pmax" placeholder="${gr.r_pmax} 인실"></td>
-					<td><button onclick="/room/getDetail/${gr.r_no}">상세 보기</button></td>
+					<td><input type="number" value="${gr.r_pmax}" readonly></td>
+					<td><button onclick="location.href='/room/getDetail/${gr.r_no}'">상세 보기</button></td>
 				</tr>
 				</c:forEach>
+			<input type="hidden" name="gh_hno" value="${grList.get(0).gh_hno}">
 			</table>
 				<div id="button">
 					<button type="submit">수정완료</button>

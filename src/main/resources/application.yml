@@ -21,14 +21,14 @@ spring:
       suffix: .jsp
     static-path-pattern: /resources/**
 
-  #custom:
-  #  path:
-  #    upload-images: 'c://uploadImages/'
+#custom:
+#  path:
+#    upload-images: 'c://uploadImages/'
   mail:
     host: smtp.gmail.com
     port: 465
-    username: ghdi95@gmail.com
-    password: jonggu1247~
+    username: eeeo5552@gmail.com
+    password: qorwn0401!
     properties:
       mail:
         smtp:
